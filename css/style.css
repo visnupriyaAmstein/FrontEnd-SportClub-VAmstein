@@ -1,231 +1,130 @@
-/* ==========================================================================
-   1. RESET Y CONFIGURACIÓN GENERAL
-   ========================================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa; /* Fondo claro y limpio */
-    color: #333333;
-    line-height: 1.6;
-}
-
-/* Clases utilitarias heredadas del HTML original (Adaptadas al nuevo diseño) */
-.ColorRojo {
-    color: #1e3a8a; /* Cambiado a un azul deportivo moderno y profesional */
-}
-
-/* ==========================================================================
-   2. HEADER & NAVEGACIÓN
-   ========================================================================== */
-header {
-    background-color: #ffffff;
-    padding: 1.5rem 2rem;
+/* Contenedor principal enfocado en el Login */
+.login-container {
+    max-width: 420px;
+    margin: 3rem auto;
+    padding: 0 1rem;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-header h1 {
-    font-size: 1.8rem;
-    font-weight: 800;
-    letter-spacing: -1px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #4b5563;
-    font-weight: 600;
-    margin-left: 1.5rem;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: #2563eb; /* Azul brillante al pasar el cursor */
-}
-
-/* ==========================================================================
-   3. SECCIÓN HERO (MAIN / INICIO)
-   ========================================================================== */
-main {
-    max-width: 800px;
-    margin: 4rem auto;
-    padding: 0 1.5rem;
-    text-align: center; /* Centrado de contenido */
-}
-
-main h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-}
-
-main p {
-    font-size: 1.2rem;
-    color: #6b7280;
-    margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Botón moderno con transiciones */
-button {
-    background-color: #2563eb;
-    color: #ffffff;
-    border: none;
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 50px; /* Bordes redondeados modernos */
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-    transition: all 0.3s ease;
-}
-
-button:hover {
-    background-color: #1d4ed8;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
-}
-
-button:active {
-    transform: translateY(0);
-}
-
-/* ==========================================================================
-   4. SECCIÓN PLANES (CARDS)
-   ========================================================================== */
-#planes {
-    background-color: #ffffff;
-    padding: 5rem 1.5rem;
-    text-align: center;
-}
-
-#planes h2 {
-    font-size: 2rem;
-    margin-bottom: 3rem;
-    position: relative;
-}
-
-/* Grid para ordenar las tarjetas de forma responsive */
-#planes > div.grid-planes, 
-#planes {
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-/* Contenedor que envolverá los articles en el HTML */
-.planes-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 1100px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-article {
-    background-color: #f8f9fa;
-    padding: 2.5rem 2rem;
-    border-radius: 16px;
+/* Tarjeta contenedora */
+.login-card {
+    background-color: #ffffff;
     border: 1px solid #e5e7eb;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-article:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-    border-color: #2563eb;
-}
-
-article h3 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    color: #111827;
-}
-
-article p {
-    color: #4b5563;
-    margin-bottom: 1.5rem;
-}
-
-article p:last-child {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #2563eb;
-    margin-bottom: 0;
-}
-
-/* ==========================================================================
-   5. FOOTER (CONTACTO) & ESTILOS DE INPUTS
-   ========================================================================== */
-footer {
-    background-color: #111827; /* Un tono oscuro elegante para cerrar la página */
-    color: #9ca3af;
-    padding: 4rem 1.5rem;
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    width: 100%;
     text-align: center;
 }
 
-footer h2 {
-    color: #ffffff;
+/* Manejo del logo centrado */
+.login-header {
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+    display: block;
+    margin-bottom: 2rem;
+    position: static;
+}
+
+.logo-img {
+    max-width: 90%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.login-title {
+    color: #2b124c; /* Púrpura de la marca */
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+/* Estructura interna del formulario */
+.login-form {
+    text-align: left;
+}
+
+.form-group {
     margin-bottom: 1.5rem;
 }
 
-footer p {
-    margin-bottom: 0.8rem;
-    font-size: 1rem;
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4b5563;
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 
-/* Inputs estilizados (Listos para cuando agregues un formulario) */
-input[type="text"],
-input[type="email"],
-textarea {
+/* Adaptación de tus inputs ya estilizados para que ocupen todo el ancho */
+.login-form input[type="email"],
+.login-form input[type="password"] {
     width: 100%;
-    max-width: 400px;
-    padding: 0.75rem 1rem;
-    margin: 0.5rem 0;
-    background-color: #ffffff;
-    border: 1px solid #d1d5db;
+    max-width: 100%; /* Sobrescribe el límite anterior para acoplarse al card */
+    padding: 0.8rem 1rem;
+    border: 2px solid #d1d5db;
     border-radius: 8px;
     font-size: 1rem;
-    color: #111827;
     transition: all 0.3s ease;
 }
 
-input:focus,
-textarea:focus {
-    outline: none;
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+.login-form input:focus {
+    border-color: #2b124c; /* Foco con el color de SportClub */
+    box-shadow: 0 0 0 3px rgba(43, 18, 76, 0.15);
 }
 
-/* ==========================================================================
-   6. RESPONSIVE DESIGN (MEDIA QUERIES)
-   ========================================================================== */
-@media (max-width: 600px) {
-    header {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    nav a {
-        margin: 0 0.7rem;
-    }
-    
-    main h2 {
-        font-size: 2rem;
-    }
+/* Botón adaptado para ocupar todo el ancho del formulario */
+.btn-block {
+    width: 100%;
+    background-color: #2b124c; /* Fondo morado */
+    color: #ffffff;
+    padding: 0.9rem;
+    border-radius: 8px; /* Combinación con el estilo de los inputs */
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(43, 18, 76, 0.2);
+}
+
+.btn-block:hover {
+    background-color: #1e0b36;
+    box-shadow: 0 6px 12px rgba(43, 18, 76, 0.3);
+}
+
+/* Separador horizontal sutil */
+.divider {
+    border: 0;
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 2rem 0;
+}
+
+/* Footer interno de la tarjeta */
+.login-footer {
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-link {
+    color: #2b124c;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: #ffb703; /* Detalle amarillo corporativo en hover */
+    text-decoration: underline;
+}
+
+.separator {
+    color: #d1d5db;
+    font-weight: 300;
 }
