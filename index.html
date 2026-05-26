@@ -4,63 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SportClub</title>
-    <link href="./css/style.css" rel="stylesheet" >
+    <title>Login - SportClub</title>
+    <link href="./css/style.css" rel="stylesheet">
 </head>
 
 <body>
 
-    <header>
-        <h1 id="titulo" class="ColorRojo">SportClub</h1>
+    <main class="login-container">
+        
+        <div class="login-card">
+            
+            <header class="login-header">
+                <img src="logo_empresa_letra_v1.png" alt="Logo SportClub" class="logo-img">
+            </header>
 
-        <nav >
-            <a href="#inicio">Inicio</a>
-            <a href="#planes">Planes</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-    </header>
+            <h2 class="login-title">Login</h2>
 
-    <main id="inicio">
-        <h2 class="ColorRojo">Entrena con nosotros</h2>
+            <form action="#" method="POST" class="login-form">
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Ingresa tu correo" required>
+                </div>
 
-        <p>
-            Bienvenido a SportClub, un espacio pensado para mejorar tu salud,
-            entrenar con profesionales y participar en diferentes clases deportivas.
-        </p>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                </div>
 
-        <button onclick="window.location.href='#planes'">Conocer planes</button>
-    </main>
+                <button type="submit" class="btn-block">Ingresar</button>
+                
+            </form>
 
-    <section id="planes">
-        <h2>Planes disponibles</h2>
+            <hr class="divider">
 
-        <div class="planes-container">
-        <article>
-            <h3>Plan Básico</h3>
-            <p>Acceso a clases grupales 2 veces por semana.</p>
-            <p>Precio: $15.000</p>
-        </article>
+            <footer class="login-footer">
+                <a href="#" class="footer-link">¿Olvidaste tu contraseña?</a>
+                <span class="separator">|</span>
+                <a href="#" class="footer-link">Registrarse</a>
+            </footer>
 
-        <article>
-            <h3>Plan Premium</h3>
-            <p>Acceso ilimitado a clases y uso de instalaciones.</p>
-            <p>Precio: $30.000</p>
-        </article>
-
-        <article>
-            <h3>Plan Familiar</h3>
-            <p>Plan para grupos familiares con beneficios especiales.</p>
-            <p>Precio: $50.000</p>
-        </article>
         </div>
-    </section>
-
-    <footer id="contacto">
-        <h2>Contacto</h2>
-        <p>Correo: contacto@sportclub.cl</p>
-        <p>Teléfono: +56 9 1234 5678</p>
-        <p>Dirección: Av. Principal 123, Santiago</p>
-    </footer>
+    </main>
 
 </body>
 
