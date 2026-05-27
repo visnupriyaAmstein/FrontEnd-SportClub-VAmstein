@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - SportClub</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="registro-container">
+        
+        <section class="registro-card">
+            
+            <header class="registro-header">
+                <a href="login.html" class="btn-back" aria-label="Volver al Login">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </a>
+                <img src="../logo_empresa_letra_v1.png" alt="Logo SportClub" class="logo-img">
+            </header>
+
+            <h2 class="registro-title">Regístrate</h2>
+
+            <form action="#" method="POST" class="registro-form">
+                
+                <fieldset class="formulario-registro">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu Nombre" required>
+                </fieldset>
+
+                <fieldset class="formulario-registro">
+                    <label for="fecha_nacimiento">¿Cuál es tu fecha de nacimiento?</label>
+                    <input type="text" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="Día / Mes / Año" required>
+                </fieldset>
+
+                <fieldset class="formulario-registro ancho-completo">
+                    <label for="deporte">¿Practicas algún deporte? cuéntanos cuál.</label>
+                    <input type="text" id="deporte" name="deporte" placeholder="¿Qué deporte practicas?" required>
+                </fieldset>
+
+                <fieldset class="formulario-registro ancho-completo">
+                    <label for="actividad">¿Qué tipo de actividad te interesa realizar?</label>
+                    <input type="text" id="actividad" name="actividad" placeholder="Actividad que te gustaría" required>
+                </fieldset>
+
+                <fieldset class="formulario-registro-objetivos">
+                    <legend>¿Cuál sería el propósito de que te nos unas?</legend>
+                    
+                    <div class="grupo-columnas">
+                        <label class="opcion">
+                            <input type="checkbox" name="objetivos" value="bajar_peso"> Bajar de peso
+                        </label>
+                        
+                        <label class="opcion">
+                            <input type="checkbox" name="objetivos" value="mantener_activo"> Mantenerse activo
+                        </label>
+                        
+                        <label class="opcion">
+                            <input type="checkbox" name="objetivos" value="entretencion"> Entretención
+                        </label>
+                        
+                        <label class="opcion">
+                            <input type="checkbox" name="objetivos" value="desestres"> Desestrés
+                        </label>
+                        
+                        <label class="opcion">
+                            <input type="checkbox" name="objetivos" value="actividad_familiar"> Actividad familiar
+                        </label>
+
+                        <label class="opcion">
+                            <input type="checkbox" name="objetivos" value="otra_opcion"> Otra
+                        </label>
+                    </div>
+                    <input type="text" id="otra" name="otra" placeholder="¿Cuál es tu otro objetivo?" required>
+                </fieldset>
+
+                <fieldset class="formulario-registro">
+                    <label for="email">¿Cuál es tu Email?</label>
+                    <input type="email" id="email" name="email" placeholder="Ingresa tu correo" required>
+                </fieldset>
+
+                <fieldset class="formulario-registro">
+                    <label for="password">Crea tu contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="Crea tu contraseña" required>
+                </fieldset>
+
+                <button type="submit" class="btn-block">Registrarse</button>
+                
+            </form>
+
+            <hr class="divider">
+
+            <footer class="login-footer">
+                </footer>
+
+        </section>
+    </main>
+
+</body>
+
+</html>
