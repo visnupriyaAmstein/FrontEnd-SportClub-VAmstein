@@ -1,0 +1,414 @@
+/* ==========================================================================
+   ESTILOS GENERALES Y CONFIGURACIÓN (Coherencia Visual Completa)
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* HEADER Y NAVEGACIÓN */
+.landing-header {
+    background-color: #2E1A47; /* Morado Oscuro Oficial */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.8rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #F2B705; /* Amarillo / Dorado Oficial */
+}
+
+.btn-login-nav {
+    background-color: #F2B705;
+    color: #2E1A47;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-login-nav:hover {
+    background-color: #ffffff;
+    color: #2E1A47;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* HERO SECTION (Estilo Motivacional y Tecnológico) */
+.hero-section {
+    background: linear-gradient(135deg, #2E1A47 0%, #1a0f29 100%);
+    color: #ffffff;
+    padding: 6rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #ffffff;
+    transform: skewY(-2deg);
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    color: #e5e7eb;
+    margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-hero-primary {
+    background-color: #F2B705;
+    color: #2E1A47;
+    padding: 0.85rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 15px rgba(242, 183, 5, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-hero-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(242, 183, 5, 0.5);
+}
+
+.btn-hero-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    padding: 0.85rem 2rem;
+    border: 2px solid #ffffff;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+}
+
+.btn-hero-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ESTRUCTURA DE SECCIONES BASE */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem;
+}
+
+.bg-light {
+    background-color: #fcfaff;
+    max-width: 100%;
+}
+
+.section-title {
+    color: #2E1A47;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 3.5rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #F2B705;
+    margin: 0.75rem auto 0 auto;
+    border-radius: 2px;
+}
+
+/* SECCIÓN BENEFICIOS */
+.grid-beneficios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.card-beneficio {
+    background-color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(46, 26, 71, 0.05);
+    border: 1px solid #f3effa;
+    transition: transform 0.3s ease;
+}
+
+.card-beneficio:hover {
+    transform: translateY(-5px);
+}
+
+.icon-box {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-beneficio h3 {
+    color: #2E1A47;
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+}
+
+/* SECCIÓN PLANES */
+.grid-planes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card-plan {
+    background-color: #ffffff;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    border: 2px solid #e5e7eb;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.card-plan.destacado {
+    border-color: #2E1A47;
+    box-shadow: 0 15px 35px rgba(46, 26, 71, 0.12);
+    transform: scale(1.03);
+}
+
+.plan-badge {
+    background-color: #f3effa;
+    color: #2E1A47;
+    padding: 0.3rem 1rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    align-self: center;
+    margin-bottom: 1rem;
+}
+
+.plan-badge.premium {
+    background-color: #F2B705;
+    color: #2E1A47;
+}
+
+.card-plan h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    color: #2E1A47;
+}
+
+.plan-price {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #2E1A47;
+    margin-bottom: 1.5rem;
+}
+
+.plan-price span {
+    font-size: 1rem;
+    color: #6b7280;
+    font-weight: 400;
+}
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    text-align: left;
+}
+
+.plan-features li {
+    padding: 0.5rem 0;
+    color: #4b5563;
+    font-size: 0.95rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.plan-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #16a34a;
+    font-weight: 700;
+}
+
+.btn-plan {
+    background-color: transparent;
+    color: #2E1A47;
+    border: 2px solid #2E1A47;
+    padding: 0.75rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-plan:hover {
+    background-color: #2E1A47;
+    color: #ffffff;
+}
+
+.btn-plan.btn-destacado {
+    background-color: #2E1A47;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-plan.btn-destacado:hover {
+    background-color: #1a0f29;
+    box-shadow: 0 4px 12px rgba(46, 26, 71, 0.25);
+}
+
+/* SECCIÓN SOBRE EL CLUB */
+.club-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.club-block h3 {
+    color: #2E1A47;
+    font-size: 1.5rem;
+}
+
+.club-grid-mv {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.mv-box {
+    background-color: #fcfaff;
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 5px solid #F2B705;
+}
+
+.mv-box h3 {
+    color: #2E1A47;
+    margin-top: 0;
+}
+
+/* FOOTER OBLIGATORIO */
+.landing-footer {
+    background-color: #1a0f29;
+    color: #ffffff;
+    padding: 4rem 1.5rem 2rem 1.5rem;
+    border-top: 4px solid #F2B705;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+}
+
+.landing-footer h4 {
+    color: #F2B705;
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+}
+
+.landing-footer p {
+    color: #9ca3af;
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+.copyright {
+    margin-top: 2rem !important;
+    font-size: 0.85rem !important;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.social-link {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.social-link:hover {
+    color: #ffffff;
+}

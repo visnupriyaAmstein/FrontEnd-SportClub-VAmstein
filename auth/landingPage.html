@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportClub - Tu mejor versión comienza hoy</title>
+    <link href="../css/landingPage.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 1. Header Obligatorio -->
+    <header class="landing-header">
+        <div class="header-container">
+            <img src="../assets/logo_empresa_letra_v1.png" alt="Logo SportClub" class="logo-img">
+            <nav class="main-nav">
+                <a href="#inicio" class="nav-link">Inicio</a>
+                <a href="#beneficios" class="nav-link">Beneficios</a>
+                <a href="#planes" class="nav-link">Planes</a>
+                <a href="#club" class="nav-link">Sobre el Club</a>
+                <a href="../auth/login.html" class="btn-login-nav">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2. Hero Section -->
+        <section id="inicio" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Tu mejor versión comienza hoy</h1>
+                <p class="hero-description">Lleva tu entrenamiento al siguiente nivel con tecnología aplicada a tu seguimiento físico y rutinas diseñadas para romper tus límites.</p>
+                <div class="hero-actions">
+                    <a href="auth/registro.html" class="btn-hero-primary">Empezar Ahora</a>
+                    <a href="#planes" class="btn-hero-secondary">Ver Planes</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Sección Beneficios (Mínimo 3 con título, descripción e ícono) -->
+        <section id="beneficios" class="section-container">
+            <h2 class="section-title">¿Por qué entrenar con nosotros?</h2>
+            <div class="grid-beneficios">
+                <div class="card-beneficio">
+                    <div class="icon-box">🏋️</div>
+                    <h3>Clases Guiadas</h3>
+                    <p>Entrenamientos dinámicos y adaptados a tu nivel por los mejores coaches certificados.</p>
+                </div>
+                <div class="card-beneficio">
+                    <div class="icon-box">📊</div>
+                    <h3>Seguimiento Tecnológico</h3>
+                    <p>Monitorea tu progreso, marcas personales y asistencia de forma 100% digital desde tu perfil.</p>
+                </div>
+                <div class="card-beneficio">
+                    <div class="icon-box">⏱️</div>
+                    <h3>Flexibilidad Horaria</h3>
+                    <p>Reserva tus bloques deportivos fácilmente a través de nuestro sistema de gestión interno.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Sección Planes (Mínimo 3 con nombre, precio y beneficios) -->
+        <section id="planes" class="section-container bg-light">
+            <h2 class="section-title">Elige tu Plan de Transformación</h2>
+            <div class="grid-planes">
+                
+                <!-- Plan 1 -->
+                <div class="card-plan">
+                    <span class="plan-badge">Inicial</span>
+                    <h3>Plan Base</h3>
+                    <div class="plan-price">$29.990 <span>/ mes</span></div>
+                    <ul class="plan-features">
+                        <li>Acceso a zona de musculación</li>
+                        <li>Evaluación física mensual</li>
+                        <li>Bloqueo de 2 reservas diarias</li>
+                    </ul>
+                    <a href="auth/registro.html" class="btn-plan">Seleccionar</a>
+                </div>
+
+                <!-- Plan 2 (Destacado) -->
+                <div class="card-plan destacado">
+                    <span class="plan-badge premium">Recomendado</span>
+                    <h3>Plan SportClub</h3>
+                    <div class="plan-price">$45.000 <span>/ mes</span></div>
+                    <ul class="plan-features">
+                        <li>Acceso libre a todas las sucursales</li>
+                        <li>Clases dirigidas ilimitadas (HIIT, Spinning, CrossFit)</li>
+                        <li>Seguimiento en la App de manera prioritaria</li>
+                        <li>Soporte y asesoría de Coach asignado</li>
+                    </ul>
+                    <a href="auth/registro.html" class="btn-plan btn-destacado">Seleccionar</a>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="card-plan">
+                    <span class="plan-badge">Avanzado</span>
+                    <h3>Plan Pro Coach</h3>
+                    <div class="plan-price">$59.990 <span>/ mes</span></div>
+                    <ul class="plan-features">
+                        <li>Todo lo incluido en Plan SportClub</li>
+                        <li>Sesión personalizada 1 a 1 semanal</li>
+                        <li>Plan nutricional a medida integrado</li>
+                    </ul>
+                    <a href="auth/registro.html" class="btn-plan">Seleccionar</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. Sección Sobre el Club (Historia, Misión y Visión) -->
+        <section id="club" class="section-container">
+            <h2 class="section-title">Sobre SportClub</h2>
+            <div class="club-content">
+                <div class="club-block text-center">
+                    <h3>Nuestra Historia</h3>
+                    <p>Nacimos como una propuesta innovadora destinada a romper los esquemas tradicionales del fitness en Chile. Integramos infraestructura deportiva de primer nivel con herramientas digitales avanzadas para ofrecer una experiencia de entrenamiento transparente, motivadora y guiada por datos reales.</p>
+                </div>
+                <div class="club-grid-mv">
+                    <div class="mv-box">
+                        <h3>🎯 Misión</h3>
+                        <p>Promover el bienestar físico y mental mediante entrenamientos deportivos y tecnología aplicada al seguimiento de usuarios.</p>
+                    </div>
+                    <div class="mv-box">
+                        <h3>👁️ Visión</h3>
+                        <p>Ser el club deportivo referente en innovación y transformación personal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 6. Footer Obligatorio -->
+    <footer class="landing-footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h4>SportClub</h4>
+                <p>Tu mejor versión comienza hoy.</p>
+                <p class="copyright">© 2026 SportClub. Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p>📧 contacto@sportclub.cl</p>
+                <p>📞 +56 9 1234 5678</p>
+                <p>📍 Santiago, Chile</p>
+            </div>
+            <div class="footer-socials">
+                <h4>Síguenos</h4>
+                <div class="social-links">
+                    <a href="#" class="social-link">Instagram</a>
+                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#" class="social-link">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
