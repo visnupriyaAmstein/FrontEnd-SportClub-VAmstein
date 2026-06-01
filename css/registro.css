@@ -1,0 +1,259 @@
+/* ==========================================================================
+   ESTILOS GLOBALES (Referencia exacta del Login)
+   ========================================================================== */
+body {
+    background-color: #2E1A47; /* Morado oscuro oficial de SportClub */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ESTRUCTURA DE CONTENEDORES (Ajuste de escala para emparejar con Login) */
+.registro-container {
+    width: 100%;
+    max-width: 760px; /* SOLUCIÓN: Ampliado para que las 2 columnas tengan el ancho real del login sin comprimir textos */
+    padding: 1.5rem;
+    box-sizing: border-box;
+}
+
+.registro-card {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem 2rem; /* Mismo acolchado interno que el Login */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Encabezados y Logos (Clonados del Login) */
+.registro-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.logo-img {
+    max-width: 75%; /* Mismo tamaño e impacto visual exacto que el Login */
+    height: auto;
+    display: block;
+}
+
+/* Flecha de regreso posicionada de manera absoluta */
+.btn-back {
+    position: absolute;
+    left: 0;
+    color: #2E1A47;
+    display: flex;
+    padding: 6px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.btn-back:hover {
+    color: #F2B705; /* Dorado oficial de la pauta al pasar el cursor */
+    background-color: #f4eefa;
+    transform: scale(1.1);
+}
+
+.registro-title {
+    color: #2E1A47;
+    text-align: center;
+    font-size: 2rem; /* Forzado a 2rem exactos para clonar el tamaño del Login */
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+/* MÓDULO DE FORMULARIOS Y DISTRIBUCIÓN EN REJILLA (Tu distribución intacta) */
+.registro-form {
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mantiene tus dos columnas originales */
+    gap: 1.25rem 1.25rem; /* Tu separación ordenada entre filas y columnas */
+}
+
+/* Estilo para los bloques contenedores (fieldset) */
+.formulario-registro,
+.formulario-registro-objetivos {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.formulario-registro label,
+.formulario-registro-objetivos legend {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4b5563;
+    font-size: 0.95rem; /* Mismo tamaño de letra de etiqueta que el Login */
+    font-weight: 600;
+}
+
+/* CLASE EXCLUSIVA: Fuerza a preguntas largas a usar toda la fila (2 columnas) */
+.registro-form .ancho-completo,
+.formulario-registro-objetivos,
+.registro-form .btn-block {
+    grid-column: span 2;
+}
+
+/* ESTILOS DE INPUTS (Ovalados, Morados e idénticos en tamaño al Login) */
+.registro-form input[type="text"],
+.registro-form input[type="email"],
+.registro-form input[type="password"] {
+    width: 100%;
+    padding: 0.8rem 1.2rem; /* Mismo alto y grosor que el login */
+    border: 2px solid #2E1A47;
+    border-radius: 25px; /* Súper ovalado */
+    font-size: 0.95rem; /* Misma escala tipográfica */
+    background-color: #fcfaff;
+    color: #4b5563;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.registro-form input:focus {
+    outline: none;
+    border-color: #F2B705; /* Amarillo/Dorado corporativo al seleccionar */
+    box-shadow: 0 0 0 4px rgba(46, 26, 71, 0.15);
+    background-color: #ffffff;
+}
+
+/* CHECKBOXES (Módulo de Objetivos en 2 columnas internas) */
+.grupo-columnas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 4%;
+    margin-top: 0.4rem;
+    margin-bottom: 0.6rem;
+}
+
+.opcion {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 48%; /* Dos opciones por línea dentro del bloque de objetivos */
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: #4b5563;
+}
+
+.registro-form input[type="checkbox"] {
+    accent-color: #2E1A47;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+#otra {
+    margin-top: 0.4rem;
+}
+
+/* BOTÓN REGISTRARSE (Ocupa las 2 columnas con el mismo alto y estilo del Login) */
+.btn-block {
+    width: 100%; 
+    display: block; 
+    margin-top: 1.5rem; 
+    background-color: #2E1A47;
+    color: #ffffff;
+    padding: 0.85rem; /* Mismo grosor de botón que el Login */
+    border: none;
+    border-radius: 25px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(46, 26, 71, 0.2);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.btn-block:hover {
+    background-color: #1a0f29;
+    box-shadow: 0 6px 12px rgba(46, 26, 71, 0.35);
+}
+
+/* COMPORTAMIENTO VISUAL PARA ALERTAS Y RETROALIMENTACIÓN DE LA PAUTA */
+.feedback-container {
+    grid-column: span 2; /* Cruza las dos columnas para no deformar el formulario */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.alert {
+    display: none;
+    padding: 0.85rem 1.2rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.4;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.alert.visible {
+    display: block; /* Visible estáticamente para revisión del docente */
+}
+
+.alert-success {
+    background-color: #e6f7ed;
+    color: #1e7e34;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background-color: #fdf2f2;
+    color: #dc3545;
+    border: 1px solid #f8d7da;
+}
+
+.field-feedback {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 0.35rem;
+    margin-left: 0.5rem;
+}
+
+.error-text {
+    color: #dc3545;
+}
+
+/* Elementos del pie de tarjeta */
+.divider {
+    grid-column: span 2; /* Cruza el grid completo */
+    border: 0;
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 1.5rem 0;
+}
+
+.login-footer {
+    grid-column: span 2; /* Centrado respecto a toda la tarjeta */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-link {
+    color: #4b5563;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: #2E1A47;
+}

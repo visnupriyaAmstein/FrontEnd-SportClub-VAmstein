@@ -1,0 +1,156 @@
+/* ==========================================================================
+   ESTILOS GLOBALES (Compartidos)
+   ========================================================================== */
+body {
+    background-color: #2b124c; /* Morado corporativo de SportClub */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ESTRUCTURA DEL CONTENEDOR LOGIN */
+.login-container {
+    width: 100%;
+    max-width: 420px; /* Login compacto */
+    padding: 1.5rem;
+    box-sizing: border-box;
+}
+
+.login-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Encabezado y Logo */
+.login-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.logo-img {
+    max-width: 75%;
+    height: auto;
+    display: block;
+}
+
+.login-title {
+    color: #2b124c;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+/* FORMULARIO */
+.login-form {
+    text-align: left;
+}
+
+/* Espaciado y Etiquetas de Inputs del Login */
+.form-group {
+    margin-bottom: 1.25rem; /* Separa el bloque de Email del bloque de Contraseña */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4b5563;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* ESTILOS DE INPUTS */
+.login-form input {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border: 2px solid #2b124c;
+    border-radius: 25px; /* Súper ovalado */
+    font-size: 0.95rem;
+    background-color: #fcfaff;
+    color: #4b5563;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: #ffb703; /* Amarillo corporativo al seleccionar */
+    box-shadow: 0 0 0 4px rgba(43, 18, 76, 0.15);
+    background-color: #ffffff;
+}
+
+/* BOTÓN PRINCIPAL */
+.btn-block {
+    width: 100%; /* Fuerza al botón a expandirse de extremo a extremo */
+    display: block; /* Evita que actúe como texto y respete el ancho completo */
+    margin-top: 1.5rem; /* Crea el espacio de separación con la contraseña */
+    background-color: #2b124c;
+    color: #ffffff;
+    padding: 0.85rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(43, 18, 76, 0.2);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.btn-block:hover {
+    background-color: #1e0b36;
+    box-shadow: 0 6px 12px rgba(43, 18, 76, 0.3);
+}
+
+/* ELEMENTOS DEL PIE DE TARJETA (Login Footer) */
+.divider {
+    border: 0;
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 1.5rem 0;
+}
+
+.login-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-link {
+    color: #4b5563;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.login-footer .btn-registrar {
+    background-color: #f4eefa;
+    color: #2b124c;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.login-footer .btn-registrar:hover {
+    background-color: #2b124c;
+    color: #ffffff;
+}
+
+.separator {
+    color: #d1d5db;
+}

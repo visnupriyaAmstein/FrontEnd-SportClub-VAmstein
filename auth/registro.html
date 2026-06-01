@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro - SportClub</title>
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/registro.css" rel="stylesheet">
 </head>
 
 <body>
@@ -26,6 +26,15 @@
 
             <h2 class="registro-title">Regístrate</h2>
 
+            <div class="feedback-container">
+                <div class="alert alert-success visible">
+                    ✨ ¡Usuario registrado correctamente!
+                </div>
+                <div class="alert alert-error visible">
+                    ⚠️ Las contraseñas no coinciden. Por favor, verifica.
+                </div>
+            </div>
+
             <form action="#" method="POST" class="registro-form">
                 
                 <fieldset class="formulario-registro">
@@ -39,54 +48,43 @@
                 </fieldset>
 
                 <fieldset class="formulario-registro ancho-completo">
-                    <label for="deporte">¿Practicas algún deporte? cuéntanos cuál.</label>
-                    <input type="text" id="deporte" name="deporte" placeholder="¿Qué deporte practicas?" required>
+                    <label for="deporte">¿Practicas algún deporte? cuéntanos cuál. (Opcional)</label>
+                    <input type="text" id="deporte" name="deporte" placeholder="¿Qué deporte practicas?">
                 </fieldset>
 
                 <fieldset class="formulario-registro ancho-completo">
-                    <label for="actividad">¿Qué tipo de actividad te interesa realizar?</label>
-                    <input type="text" id="actividad" name="actividad" placeholder="Actividad que te gustaría" required>
+                    <label for="actividad">¿Qué tipo de actividad te interesa realizar? (Opcional)</label>
+                    <input type="text" id="actividad" name="actividad" placeholder="Actividad que te gustaría">
                 </fieldset>
 
                 <fieldset class="formulario-registro-objetivos">
                     <legend>¿Cuál sería el propósito de que te nos unas?</legend>
                     
                     <div class="grupo-columnas">
-                        <label class="opcion">
-                            <input type="checkbox" name="objetivos" value="bajar_peso"> Bajar de peso
-                        </label>
-                        
-                        <label class="opcion">
-                            <input type="checkbox" name="objetivos" value="mantener_activo"> Mantenerse activo
-                        </label>
-                        
-                        <label class="opcion">
-                            <input type="checkbox" name="objetivos" value="entretencion"> Entretención
-                        </label>
-                        
-                        <label class="opcion">
-                            <input type="checkbox" name="objetivos" value="desestres"> Desestrés
-                        </label>
-                        
-                        <label class="opcion">
-                            <input type="checkbox" name="objetivos" value="actividad_familiar"> Actividad familiar
-                        </label>
-
-                        <label class="opcion">
-                            <input type="checkbox" name="objetivos" value="otra_opcion"> Otra
-                        </label>
+                        <label class="opcion"><input type="checkbox" name="objetivos" value="bajar_peso"> Bajar de peso</label>
+                        <label class="opcion"><input type="checkbox" name="objetivos" value="mantener_activo"> Mantenerse activo</label>
+                        <label class="opcion"><input type="checkbox" name="objetivos" value="entretencion"> Entretención</label>
+                        <label class="opcion"><input type="checkbox" name="objetivos" value="desestres"> Desestrés</label>
+                        <label class="opcion"><input type="checkbox" name="objetivos" value="actividad_familiar"> Actividad familiar</label>
+                        <label class="opcion"><input type="checkbox" name="objetivos" value="otra_opcion"> Otra</label>
                     </div>
-                    <input type="text" id="otra" name="otra" placeholder="¿Cuál es tu otro objetivo?" required>
+                    <input type="text" id="otra" name="otra" placeholder="¿Cuál es tu otro objetivo?">
                 </fieldset>
 
-                <fieldset class="formulario-registro">
+                <fieldset class="formulario-registro ancho-completo">
                     <label for="email">¿Cuál es tu Email?</label>
                     <input type="email" id="email" name="email" placeholder="Ingresa tu correo" required>
+                    <span class="field-feedback error-text">Correo inválido</span>
                 </fieldset>
 
                 <fieldset class="formulario-registro">
                     <label for="password">Crea tu contraseña</label>
                     <input type="password" id="password" name="password" placeholder="Crea tu contraseña" required>
+                </fieldset>
+
+                <fieldset class="formulario-registro">
+                    <label for="confirm-password">Confirmar contraseña</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Repite tu contraseña" required>
                 </fieldset>
 
                 <button type="submit" class="btn-block">Registrarse</button>
@@ -96,7 +94,8 @@
             <hr class="divider">
 
             <footer class="login-footer">
-                </footer>
+                <a href="login.html" class="footer-link">¿Ya tienes cuenta? Inicia Sesión</a>
+            </footer>
 
         </section>
     </main>
