@@ -2,7 +2,7 @@
 
 **SportClub** es una plataforma web moderna y tecnológica orientada a la digitalización de procesos internos para centros de acondicionamiento físico. El sistema centraliza la experiencia de la comunidad deportiva a través de interfaces personalizadas y optimizadas para diferentes roles de usuario, facilitando el control de rutinas, horarios y administración global.
 
-🚀 **[VER APLICACIÓN EN VIVO]**(AQUÍ_VA_EL_LINK_DE_GITHUB_PAGES)
+🚀 **[VER APLICACIÓN EN VIVO]**(https://visnupriyaamstein.github.io/FrontEnd-SportClub-VAmstein/auth/landingPage.html)
 
 ![landing Page](assets/landig_page.png)
 
@@ -54,3 +54,6 @@ Cada entorno cuenta con una identidad cromática propia y componentes semántico
 ├── index.html       # Punto de entrada principal que conecta directamente al Landing Page
 ├── ia.md            # Documentación de utilización de Inteligencia Artificial
 └── README.md        # Documentación general del sistema
+
+---
+> 🎓 **Créditos:** Proyecto creado por Visnupriya Amstein para la clase de FrontEnd en INACAP 2026.
