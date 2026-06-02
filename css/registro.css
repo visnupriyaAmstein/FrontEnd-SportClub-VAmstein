@@ -1,8 +1,5 @@
-/* ==========================================================================
-   ESTILOS GLOBALES (Sincronizados con el Login corporativo)
-   ========================================================================== */
 body {
-    background-color: #2E1A47; /* Morado oscuro corporativo */
+    background-color: #2E1A47; 
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -12,24 +9,22 @@ body {
     align-items: center;
 }
 
-/* CONTENEDOR PRINCIPAL (Ajustado exactamente a los 760px del Login) */
 .registro-container {
     width: 100%;
-    max-width: 760px; /* Evita que se vea gigante en pantallas grandes o despliegues */
+    max-width: 760px; 
     padding: 1.5rem;
     box-sizing: border-box;
 }
 
 .registro-card {
     background-color: #FFFFFF;
-    border-radius: 20px; /* Bordes suaves unificados */
-    padding: 3rem 2.5rem; /* Espaciado interno balanceado */
+    border-radius: 20px; 
+    padding: 3rem 2.5rem; 
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     width: 100%;
     box-sizing: border-box;
 }
 
-/* CABECERA Y LOGO (Mismo tamaño y comportamiento simétrico) */
 .registro-header {
     position: relative;
     display: flex;
@@ -40,20 +35,19 @@ body {
 }
 
 .logo-img {
-    max-width: 60%; /* Escala porcentual idéntica al Login */
+    max-width: 60%; 
     width: auto;
     height: auto;
     display: block;
-    padding: 0; /* Eliminado el padding gigante anterior */
+    padding: 0; 
 }
 
-/* Flecha de regreso posicionada correctamente */
 .btn-back {
     position: absolute;
     left: 0;
     color: #2E1A47;
     display: flex;
-    padding: 8px; /* Padding normal de botón táctil */
+    padding: 8px; 
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -65,29 +59,27 @@ body {
     transform: scale(1.1);
 }
 
-/* TÍTULO DE LA PÁGINA */
 .registro-title {
     color: #2E1A47;
     text-align: center;
-    font-size: 2.2rem; /* Normalizado de los 4.5rem exagerados */
+    font-size: 2.2rem; 
     font-weight: 800;
     margin-top: 0;
     margin-bottom: 2.5rem;
 }
 
-/* BLOQUE DE ALERTAS Y FEEDBACK */
 .feedback-container {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
     width: 100%;
-    max-width: 550px; /* Centrado y acoplado al ancho del formulario */
+    max-width: 550px;
     margin: 0 auto 1.5rem auto;
 }
 
 .alert {
     padding: 0.85rem 1.2rem;
-    border-radius: 25px; /* Ovaladas según la línea gráfica */
+    border-radius: 25px;
     font-size: 0.9rem;
     font-weight: 600;
     text-align: center;
@@ -107,14 +99,12 @@ body {
     border: 1px solid #f8b4b4;
 }
 
-/* DISEÑO DEL FORMULARIO (Malla de 2 columnas interna) */
 .registro-form {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem 1.25rem; 
     width: 100%;
-    max-width: 550px; /* Ancho máximo del bloque del contenido unificado */
-    margin: 0 auto;
+    max-width: 550px; 
     text-align: left;
 }
 
@@ -136,18 +126,17 @@ body {
     display: block;
     margin-bottom: 0.5rem;
     color: #4b5563;
-    font-size: 0.95rem; /* Ajustado de los 1.95rem anteriores */
+    font-size: 0.95rem; 
     font-weight: 600; 
 }
 
-/* ENTRADAS DE TEXTO / INPUTS */
 .registro-form input[type="text"],
 .registro-form input[type="email"],
 .registro-form input[type="password"] {
     width: 100%;
-    padding: 0.8rem 1.2rem; /* Alto perfecto e idéntico al Login */
+    padding: 0.8rem 1.2rem; 
     border: 2px solid #2E1A47;
-    border-radius: 25px; /* Forma ovalada */
+    border-radius: 25px;
     font-size: 0.95rem;
     background-color: #fcfaff;
     color: #4b5563;
@@ -162,7 +151,6 @@ body {
     background-color: #ffffff;
 }
 
-/* Mensajes Inline debajo de los Inputs */
 .field-feedback.error-text {
     display: block;
     color: #dc3545;
@@ -172,7 +160,6 @@ body {
     margin-left: 1rem;
 }
 
-/* SECCIÓN CHECKBOXES (Objetivos) */
 .grupo-columnas {
     display: flex;
     flex-wrap: wrap;
@@ -185,7 +172,7 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    width: 48%; /* Dos opciones limpias por fila dentro del formulario */
+    width: 48%; 
     font-size: 0.9rem;
     font-weight: 500;
     color: #4b5563;
@@ -203,7 +190,6 @@ body {
     margin-top: 0.5rem;
 }
 
-/* BOTÓN DE ACCIÓN PRINCIPAL */
 .btn-block {
     width: 100%;
     background-color: #2E1A47; 
@@ -226,7 +212,6 @@ body {
     transform: translateY(-1px);
 }
 
-/* ELEMENTOS DE CIERRE / ENLACES */
 .divider {
     border: 0;
     height: 1px;
