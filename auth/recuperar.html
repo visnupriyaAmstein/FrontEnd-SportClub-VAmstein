@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Contraseña - SportClub</title>
+    <link href="../css/recuperar.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="recuperar-container">
+        
+        <section class="recuperar-card">
+            
+            <header class="recuperar-header">
+                <a href="login.html" class="btn-back" aria-label="Volver al Login">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </a>
+                <img src="../assets/logo_empresa_letra_v1.png" alt="Logo SportClub" class="logo-img">
+            </header>
+
+            <h2 class="recuperar-title">Recuperar Contraseña</h2>
+            <p class="recuperar-subtitle">Ingresa tu correo electrónico registrado y te enviaremos las instrucciones para restablecer tu cuenta.</p>
+
+            <div class="feedback-container">
+                <div class="alert alert-success visible">
+                    ✨ Se ha enviado un enlace de recuperación al correo ingresado.
+                </div>
+            </div>
+
+            <form action="#" method="POST" class="recuperar-form">
+                
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                </div>
+
+                <button type="submit" class="btn-block">Enviar Enlace</button>
+                
+            </form>
+
+            <hr class="divider">
+
+            <footer class="recuperar-footer">
+                <a href="login.html" class="footer-link">Volver al Inicio de Sesión</a>
+            </footer>
+
+        </section>
+    </main>
+
+</body>
+
+</html>

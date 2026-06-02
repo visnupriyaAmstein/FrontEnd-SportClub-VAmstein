@@ -1,6 +1,3 @@
-/* ==========================================================================
-   ESTILOS GENERALES Y CONFIGURACIÓN (Coherencia Visual Completa)
-   ========================================================================== */
 html {
     scroll-behavior: smooth;
 }
@@ -14,9 +11,8 @@ body {
     line-height: 1.6;
 }
 
-/* HEADER Y NAVEGACIÓN */
 .landing-header {
-    background-color: #2E1A47; /* Morado Oscuro Oficial */
+    background-color: #2E1A47; 
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -52,7 +48,7 @@ body {
 }
 
 .nav-link:hover {
-    color: #F2B705; /* Amarillo / Dorado Oficial */
+    color: #F2B705; 
 }
 
 .btn-login-nav {
@@ -71,7 +67,6 @@ body {
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
 }
 
-/* HERO SECTION (Estilo Motivacional y Tecnológico) */
 .hero-section {
     background: linear-gradient(135deg, #2E1A47 0%, #1a0f29 100%);
     color: #ffffff;
@@ -152,7 +147,6 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* ESTRUCTURA DE SECCIONES BASE */
 .section-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -184,7 +178,6 @@ body {
     border-radius: 2px;
 }
 
-/* SECCIÓN BENEFICIOS */
 .grid-beneficios {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -216,7 +209,6 @@ body {
     font-size: 1.3rem;
 }
 
-/* SECCIÓN PLANES */
 .grid-planes {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -329,7 +321,6 @@ body {
     box-shadow: 0 4px 12px rgba(46, 26, 71, 0.25);
 }
 
-/* SECCIÓN SOBRE EL CLUB */
 .club-content {
     max-width: 900px;
     margin: 0 auto;
@@ -363,7 +354,6 @@ body {
     margin-top: 0;
 }
 
-/* FOOTER OBLIGATORIO */
 .landing-footer {
     background-color: #1a0f29;
     color: #ffffff;

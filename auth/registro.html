@@ -5,19 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro - SportClub</title>
-    <!-- Conexión al CSS específico de tu ruta actual -->
     <link href="../css/registro.css" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- Contenedor centrado idéntico al Login con ancho simétrico de 760px -->
     <main class="registro-container">
         
         <section class="registro-card">
             
             <header class="registro-header">
-                <!-- Botón de regreso nativo con history.back() -->
                 <a onclick="history.back()" class="btn-back" aria-label="Volver al Login">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="19" y1="12" x2="5" y2="12"></line>
@@ -27,10 +24,8 @@
                 <img src="../assets/logo_empresa_letra_v1.png" alt="Logo SportClub" class="logo-img">
             </header>
 
-            <!-- Título con la escala unificada de 2.2rem -->
             <h2 class="registro-title">Regístrate</h2>
 
-            <!-- Espacios visuales destinados a la retroalimentación (Pauta del docente) -->
             <div class="feedback-container">
                 <div class="alert alert-success visible">
                     ✨ ¡Usuario registrado correctamente!
@@ -40,7 +35,6 @@
                 </div>
             </div>
 
-            <!-- Formulario con tu distribución original estructurada -->
             <form action="login.html" method="GET" class="registro-form">
                 
                 <fieldset class="formulario-registro">
@@ -80,7 +74,6 @@
                 <fieldset class="formulario-registro ancho-completo">
                     <label for="email">¿Cuál es tu Email?</label>
                     <input type="email" id="email" name="email" placeholder="Ingresa tu correo" required>
-                    <!-- Retroalimentación inline para errores específicos de campo -->
                     <span class="field-feedback error-text">Correo inválido</span>
                 </fieldset>
 
@@ -94,7 +87,6 @@
                     <input type="password" id="confirm-password" name="confirm-password" placeholder="Repite tu contraseña" required>
                 </fieldset>
 
-                <!-- Botón que envía el formulario simulado y cruza las dos columnas -->
                 <button type="submit" class="btn-block ancho-completo">Registrarse</button>
                 
             </form>

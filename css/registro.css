@@ -1,8 +1,6 @@
-/* ==========================================================================
-   ESTILOS GLOBALES (Mismo comportamiento que el Login)
-   ========================================================================== */
+
 body {
-    background-color: #2E1A47; /* Morado oscuro corporativo */
+    background-color: #2E1A47; 
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -12,25 +10,23 @@ body {
     align-items: center;
 }
 
-/* CONTENEDOR DE REGISTRO (Crecemos el ancho para compensar la densidad de campos) */
 .registro-container {
     width: 100%;
-    max-width: 1480px; /* Subimos a 900px para que al dividirse en 2 filas se vea imponente */
+    max-width: 1480px; 
     padding: 1rem 1.5rem;
     box-sizing: border-box;
 }
 
 .registro-card {
     background-color: #FFFFFF;
-    border-radius: 35px; /* Bordes suaves idénticos al login */
-    padding: 3rem 3.5rem; /* Acolchado profundo para dar mas sensación de amplitud */
+    border-radius: 35px; 
+    padding: 3rem 3.5rem;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
     width: 100%;
     box-sizing: border-box;
     margin-top: 25px;
 }
 
-/* HEADER Y LOGO (Misma escala visual que image_e0ea44.png) */
 .registro-header {
     position: relative;
     display: flex;
@@ -41,14 +37,13 @@ body {
 }
 
 .logo-img {
-    max-width: 770px; /* Tamaño real y estonizado del logo del Login */
+    max-width: 770px; 
     width: 100%;
     height: auto;
     display: block;
     padding: 3rem 3.5rem;
 }
 
-/* Botón flecha de regreso */
 .btn-back {
     position: absolute;
     left: 0;
@@ -66,18 +61,16 @@ body {
     transform: scale(1.1);
 }
 
-/* TÍTULO REGÍSTRATE */
 .registro-title {
     color: #2E1A47;
     text-align: center;
-    font-size: 4.5rem; /* Tamaño grande y destacado */
+    font-size: 4.5rem; 
     font-weight: 800;
     margin-top: 0;
     margin-bottom: 2rem;
     margin: -1.5rem auto 2rem auto;
 }
 
-/* SECCIÓN DE FEEDBACK (Alertas de Éxito / Error de ancho completo) */
 .feedback-container {
     display: flex;
     flex-direction: column;
@@ -89,7 +82,7 @@ body {
 
 .alert {
     padding: 1rem 1.25rem;
-    border-radius: 30px; /* Ovaladas en sintonía con los inputs */
+    border-radius: 30px;
     font-size: 1.4rem;
     font-weight: 600;
     text-align: center;
@@ -109,18 +102,16 @@ body {
     border: 1px solid #f8b4b4;
 }
 
-/* REJILLA EN DOS COLUMNAS */
 .registro-form {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas nativas perfectas */
-    gap: 1.5rem 1.75rem; /* Más espacio entre campos para que no se vea amontonado */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1.75rem; 
     width: 100%;
     max-width: 1080px;
     margin: 0 auto;
     text-align: left;
 }
 
-/* Estructura de bloques */
 .formulario-registro,
 .formulario-registro-objetivos {
     border: none;
@@ -130,7 +121,6 @@ body {
     box-sizing: border-box;
 }
 
-/* Forzar elementos a usar la fila completa */
 .ancho-completo {
     grid-column: span 2;
 }
@@ -141,17 +131,16 @@ body {
     margin-bottom: 0.6rem;
     color: #374151;
     font-size: 1.95rem;
-    font-weight: 700; /* Textos firmes como el Login */
+    font-weight: 700; 
 }
 
-/* INPUTS IDÉNTICOS AL LOGIN (Grosor, forma y padding) */
 .registro-form input[type="text"],
 .registro-form input[type="email"],
 .registro-form input[type="password"] {
     width: 100%;
-    padding: 0.95rem 1.5rem; /* Un poco más altos para igualar el login */
+    padding: 0.95rem 1.5rem; 
     border: 2px solid #2E1A47;
-    border-radius: 30px; /* Súper ovalados */
+    border-radius: 30px; 
     font-size: 1.4rem;
     background-color: #ffffff;
     color: #2E1A47;
@@ -165,7 +154,6 @@ body {
     box-shadow: 0 0 0 4px rgba(46, 26, 71, 0.15);
 }
 
-/* Error de input Inline ("Correo Inválido") */
 .field-feedback.error-text {
     display: block;
     color: #dc3545;
@@ -175,10 +163,9 @@ body {
     margin-left: 1.2rem;
 }
 
-/* SECCIÓN CHECKBOXES (Objetivos) */
 .grupo-columnas {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Sub-rejilla limpia de 2 columnas internas */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 0.75rem 1rem;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
@@ -205,10 +192,9 @@ body {
     margin-top: 0.5rem;
 }
 
-/* BOTÓN REGISTRARSE (Grande, robusto e idéntico al botón "Ingresar") */
 .btn-block {
     width: 100%;
-    background-color: #2E1A47  ; /* El tono oscuro que se aprecia en tu login */
+    background-color: #2E1A47  ; 
     color: #FFFFFF;
     padding: 1rem;
     border: none;
@@ -226,7 +212,6 @@ body {
     transform: translateY(-1px);
 }
 
-/* FOOTER Y SEPARADORES */
 .divider {
     border: 0;
     height: 1px;

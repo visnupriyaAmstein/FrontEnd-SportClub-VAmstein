@@ -8,50 +8,51 @@
 </head>
 <body>
 
-    <!-- 1. Header Obligatorio -->
     <header class="db-header">
         <div class="header-brand">
             <img src="../assets/logo_empresa_letra_v1.png" alt="Logo SportClub" class="logo-img">
         </div>
         <div class="header-actions">
-            <a href="perfil.html" class="btn-header btn-profile">👤 Mi Perfil</a>
+            <a href="mantenimiento.html" class="btn-header btn-profile">👤 Mi Perfil</a>
             <a href="login.html" class="btn-header btn-logout">🚪 Cerrar Sesión</a>
         </div>
     </header>
 
     <div class="db-container">
-        <!-- 2. Navegación Obligatoria (Rol: Usuario) -->
         <nav class="db-nav">
             <ul class="nav-list">
                 <li><a href="dashboardUsuario.html" class="nav-link active">🏠 Inicio</a></li>
-                <li><a href="reservas.html" class="nav-link">📅 Mis Reservas</a></li>
-                <li><a href="clases.html" class="nav-link">🏋️ Clases y Rutinas</a></li>
-                <li><a href="pagos.html" class="nav-link">💳 Mis Pagos</a></li>
+                <li><a href="mantenimiento.html" class="nav-link">📅 Mis Reservas</a></li>
+                <li><a href="mantenimiento.html" class="nav-link">🏋️ Clases y Rutinas</a></li>
+                <li><a href="mantenimiento.html" class="nav-link">💳 Mis Pagos</a></li>
             </ul>
         </nav>
 
-        <!-- 3. Layout Principal (Identidad: Azul) -->
         <main class="db-main">
-            <div class="welcome-banner">
+            
+            <section class="welcome-banner">
                 <h1>¡Hola, Deportista!</h1>
                 <p>"Tu mejor versión comienza hoy." Recuerda revisar tus reservas de clases para esta semana.</p>
-            </div>
+            </section>
 
             <div class="grid-content">
-                <!-- Card 1 -->
-                <div class="card">
-                    <div class="card-header">📅 Próxima Reserva</div>
+                
+                <article class="card">
+                    <header class="card-header">
+                        <h2>📅 Próxima Reserva</h2>
+                    </header>
                     <div class="card-body">
                         <h3>Spinning Avanzado</h3>
                         <p><strong>Coach:</strong> Carlos Pérez</p>
                         <p><strong>Horario:</strong> Hoy - 19:30 hrs</p>
-                        <a href="reservas.html" class="btn-primary">Ver Detalle</a>
+                        <a href="mantenimiento.html" class="btn-primary">Ver Detalle</a>
                     </div>
-                </div>
+                </article>
 
-                <!-- Card 2 -->
-                <div class="card">
-                    <div class="card-header">💪 Mi Progreso Semanal</div>
+                <article class="card">
+                    <header class="card-header">
+                        <h2>💪 Mi Progreso Semanal</h2>
+                    </header>
                     <div class="card-body">
                         <table class="data-table">
                             <thead>
@@ -75,7 +76,8 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </article>
+                
             </div>
         </main>
     </div>

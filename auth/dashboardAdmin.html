@@ -8,48 +8,51 @@
 </head>
 <body>
 
-    <!-- 1. Header Obligatorio -->
     <header class="db-header">
         <div class="header-brand">
             <img src="../assets/logo_empresa_letra_v1.png" alt="Logo SportClub" class="logo-img">
         </div>
         <div class="header-actions">
-            <a href="perfil.html" class="btn-header btn-profile">👤 Mi Perfil</a>
+            <a href="mantenimiento.html" class="btn-header btn-profile">👤 Mi Perfil</a>
             <a href="login.html" class="btn-header btn-logout">🚪 Cerrar Sesión</a>
         </div>
     </header>
 
     <div class="db-container">
-        <!-- 2. Navegación Obligatoria (Rol: Administrador) -->
         <nav class="db-nav">
             <ul class="nav-list">
                 <li><a href="dashboardAdmin.html" class="nav-link active">🛡️ Panel Global</a></li>
-                <li><a href="usuariosAdmin.html" class="nav-link">👥 Control de Usuarios</a></li>
-                <li><a href="clasesAdmin.html" class="nav-link">⚙️ Gestión de Bloques</a></li>
-                <li><a href="reportes.html" class="nav-link">📊 Reportes Financieros</a></li>
+                <li><a href="mantenimiento.html" class="nav-link">👥 Control de Usuarios</a></li>
+                <li><a href="mantenimiento.html" class="nav-link">⚙️ Gestión de Bloques</a></li>
+                <li><a href="mantenimiento.html" class="nav-link">📊 Reportes Financieros</a></li>
             </ul>
         </nav>
 
-        <!-- 3. Layout Principal (Identidad: Morado Tecnológico) -->
         <main class="db-main">
-            <div class="welcome-banner">
+            
+            <section class="welcome-banner">
                 <h1>Consola de Administración Central</h1>
                 <p>Monitoreo del estado del servidor estático, altas corporativas y control de reportería.</p>
-            </div>
+            </section>
 
             <div class="grid-content">
-                <div class="card">
-                    <div class="card-header">⚙️ Estado Operativo del Club</div>
+                
+                <article class="card">
+                    <header class="card-header">
+                        <h2>⚙️ Estado Operativo del Club</h2>
+                    </header>
                     <div class="card-body">
                         <h3>Métricas de Uso</h3>
                         <p><strong>Usuarios Activos:</strong> 342 Hoy</p>
                         <p><strong>Cupos Ocupados:</strong> 87% Semanal</p>
-                        <a href="reportes.html" class="btn-primary">Ver Auditoría</a>
+                        <a href="mantenimiento.html" class="btn-primary">Ver Auditoría</a>
                     </div>
-                </div>
+                </article>
 
-                <div class="card">
-                    <div class="card-header">🔒 Solicitudes de Registro Pendientes</div>
+                <article class="card">
+                    <header class="card-header">
+                        <h2>🔒 Solicitudes de Registro Pendientes</h2>
+                    </header>
                     <div class="card-body">
                         <table class="data-table">
                             <thead>
@@ -68,7 +71,8 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </article>
+
             </div>
         </main>
     </div>

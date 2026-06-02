@@ -1,4 +1,3 @@
-/* Base e Identidad Común */
 body {
     margin: 0;
     font-family: system-ui, -apple-system, sans-serif;
@@ -6,9 +5,8 @@ body {
     color: #333;
 }
 
-/* Header Base Coherente */
 .db-header {
-    background-color: #2E1A47; /* Morado corporativo de SportClub */
+    background-color: #2E1A47; 
     color: white;
     padding: 0.8rem 2rem;
     display: flex;
@@ -38,16 +36,14 @@ body {
 
 .btn-profile { background-color: rgba(255,255,255,0.15); }
 .btn-profile:hover { background-color: rgba(255,255,255,0.3); }
-.btn-logout { background-color: #dc3545; }
+.btn-logout { background-color: rgb(42, 117, 211); }
 .btn-logout:hover { background-color: #bd2130; }
 
-/* Layout Estructurado */
 .db-container {
     display: flex;
     min-height: calc(100vh - 64px);
 }
 
-/* Navegación - DIFERENCIACIÓN AZUL */
 .db-nav {
     width: 240px;
     background-color: #1e293b;
@@ -71,18 +67,17 @@ body {
 
 .nav-link:hover, .nav-link.active {
     color: white;
-    background-color: #0284c7; /* Azul Usuario */
-    border-left: 4px solid #F2B705; /* Detalle Dorado */
+    background-color: rgb(42, 117, 211);
+    border-left: 4px solid #F2B705;
 }
 
-/* Área de Contenido Principal */
 .db-main {
     flex-grow: 1;
     padding: 2rem;
 }
 
 .welcome-banner {
-    background: linear-gradient(135deg, #0284c7, #0369a1); /* Degradados de Azul */
+    background: linear-gradient(135deg, rgb(42, 117, 211), #0369a1); 
     color: white;
     padding: 1.5rem;
     border-radius: 12px;
@@ -91,7 +86,6 @@ body {
 
 .welcome-banner h1 { margin: 0 0 0.5rem 0; }
 
-/* Cards y Tablas Ordenadas */
 .grid-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -103,23 +97,22 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     overflow: hidden;
-    border-top: 4px solid #0284c7; /* Identidad Azul */
+    border-top: 4px solid rgb(42, 117, 211); 
 }
 
 .card-header {
     background-color: #f8fafc;
     padding: 1rem;
     font-weight: 700;
-    color: #0369a1;
+    color: rgb(42, 117, 211);
     border-bottom: 1px solid #e2e8f0;
 }
 
 .card-body { padding: 1.5rem; }
 
-/* Botones principales destacados */
 .btn-primary {
     display: inline-block;
-    background-color: #0284c7; /* Azul */
+    background-color: rgb(42, 117, 211); 
     color: white;
     padding: 0.6rem 1.2rem;
     border-radius: 20px;
@@ -128,7 +121,7 @@ body {
     transition: background 0.3s;
 }
 
-.btn-primary:hover { background-color: #0369a1; }
+.btn-primary:hover { background-color: rgb(42, 117, 211); }
 
 .data-table {
     width: 100%;

@@ -1,4 +1,3 @@
-/* Base idéntica para mantener estructura base común */
 body {
     margin: 0;
     font-family: system-ui, -apple-system, sans-serif;
@@ -25,14 +24,16 @@ body {
     font-weight: 600;
 }
 .btn-profile { background-color: rgba(255,255,255,0.15); }
-.btn-logout { background-color: #dc3545; }
+.btn-profile:hover { background-color: rgba(255,255,255,0.3); }
+.btn-logout { background-color: #581c87; }
+.btn-logout:hover { background-color: #bd2130; }
 
 .db-container { display: flex; min-height: calc(100vh - 64px); }
 
-/* Navegación - DIFERENCIACIÓN MORADO OSCURO INTENSO / CORPORATIVO */
+/* Navegación  */
 .db-nav {
     width: 240px;
-    background-color: #1a0f29; /* Súper oscuro */
+    background-color: #1a0f29; 
     padding: 1.5rem 0;
 }
 
@@ -47,13 +48,13 @@ body {
 
 .nav-link:hover, .nav-link.active {
     color: white;
-    background-color: #581c87; /* Morado Administrador Elitista */
+    background-color: #581c87;
     border-left: 4px solid #F2B705;
 }
 
 .db-main { flex-grow: 1; padding: 2rem; }
 
-/* Banner con degradado morado intenso */
+/* Banner  */
 .welcome-banner {
     background: linear-gradient(135deg, #581c87, #3b0764);
     color: white;
@@ -73,7 +74,7 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     overflow: hidden;
-    border-top: 4px solid #581c87; /* Identidad Morada */
+    border-top: 4px solid #581c87; 
 }
 
 .card-header {
@@ -86,7 +87,6 @@ body {
 
 .card-body { padding: 1.5rem; }
 
-/* Botón destacado Morado */
 .btn-primary {
     display: inline-block;
     background-color: #581c87;
