@@ -1,38 +1,55 @@
-Herramienta utilizada: Gemini
-Fecha: 24 de mayo
-Prompt utilizado: Que etiquetas debo usar para un login en html para que uno pueda ingresar informacion tipo la contraseña y el correo 
-Resultado generado: 
-Las etiquetas esenciales para el formulario
-<form>: Es el contenedor principal de todo el formulario. Agrupa todos los elementos de entrada y define hacia dónde se enviarán los datos mediante atributos como action (el destino) y method (usualmente POST para inicios de sesión por seguridad).
+# 🏋️‍♂️ SportClub - Sistema de Gestión Deportiva Integral
 
-<label>: Define una etiqueta de texto para cada campo de entrada. Es crucial para la accesibilidad (lectores de pantalla) y la usabilidad, ya que al hacer clic en el texto del label, el cursor se posiciona automáticamente dentro del campo asociado usando el atributo for.
+[cite_start]**SportClub** es una plataforma web moderna y tecnológica orientada a la digitalización de procesos internos para centros de acondicionamiento físico[cite: 31, 32]. [cite_start]El sistema centraliza la experiencia de la comunidad deportiva a través de interfaces personalizadas y optimizadas para diferentes roles de usuario, facilitando el control de rutinas, horarios y administración global[cite: 33, 141].
 
-<input>: Es el elemento estrella para capturar información. No tiene etiqueta de cierre y su comportamiento cambia por completo según el valor que le des a su atributo type.
+![landing Page](assets\landig_page.png)
 
-<button>: Define el botón para procesar el formulario. Al asignarle el atributo type="submit", le indica al navegador que debe recopilar y enviar la información de los inputs al hacer clic.
-Modificaciones realizadas: genere mi codigo con esta guía 
-Justificación: no cambie nada ya que el chat no me dio el codigo , si no que me ayudo a guiarme para generar mi propio codigo.
+🚀 **[VER APLICACIÓN EN VIVO]**(AQUÍ_VA_EL_LINK_DE_GITHUB_PAGES)
 
+---
 
-Herramienta utilizada: Gemini
-Fecha: 24 de mayo 
-Prompt utilizado: que codigo se utiliza para acomodar en box la estructura html ? en css que incluya Contenedor centrado en pantalla,Fondo de color claro,Formulario dentro de un cuadro (card).
-Uso de:márgenes,padding,bordes,tipografía.
+## 📸 Capturas de Pantalla
 
-Resultado generado: me dio codigos como este : 
-/* Fondo de color claro solicitado */
-    background-color: #f4f6f9; 
-    
-    /* Ocupa todo el alto de la pantalla visible */
-    min-height: 100vh; 
-    
-    /* ALINEACIÓN EN CAJA: Centra el formulario horizontal y verticalmente */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    /* Padding de seguridad para que la tarjeta no choque con los bordes en celulares */
-    padding: 20px;
-Modificaciones realizadas: lo modifique según mi gusto
-Justificación: utilice solo la estructura que me dio , pero yo la ajuste con lo que me parecia mejor.
+### 🔑 Módulo de Autenticación (Login & Registro)
+[cite_start]Alineación matemática simétrica, formularios unificados de ancho y alertas de retroalimentación integradas en la interfaz[cite: 107, 131].
 
+| Inicio de Sesión | Registro de Usuario |
+| :---: | :---: |
+| ![Login](assets\login.png) | ![Registro](assets\registrarse.png) |
+
+### 📊 Paneles de Control (Dashboards por Rol)
+[cite_start]Cada entorno cuenta con una identidad cromática propia y componentes semánticos independientes adaptados a su flujo operativo[cite: 141, 143, 331].
+
+#### 1. Panel de Usuario (Identidad Azul)
+[cite_start]*Seguimiento personal, próximas clases, progreso semanal y perfil rápido[cite: 162, 169, 333].*
+> ![Dashboard Usuario](assets\d_usuario.png)
+
+#### 2. Panel Técnico de Coach (Identidad Verde)
+[cite_start]*Monitoreo de bloques actuales, asistencia de alumnos y horarios asignados[cite: 197, 208, 334].*
+> ![Dashboard Coach](assets\d_coach.png)
+
+#### 3. Consola de Administración Central (Identidad Morada)
+[cite_start]*Métricas de uso del club, control de usuarios y estado operativo global[cite: 247, 255, 336].*
+> ![Dashboard Administrador](assets\d_admin.png)
+
+---
+
+## 🛠️ Tecnologías y Estándares Aplicados
+
+- [cite_start]**HTML5 Semántico:** Estructura limpia y optimizada utilizando componentes nativos (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`) para eliminar el uso excesivo de contenedores genéricos[cite: 27, 376].
+- [cite_start]**CSS Personalizado:** Estilizado modular que implementa la paleta de colores corporativa (Morado Oscuro `#2E1A47`, Amarillo Dorado `#F2B705`, Blanco `#FFFFFF`) complementada con variables armónicas para los estados e identidades de cada rol[cite: 27, 44, 337].
+- [cite_start]**Diseño Responsive:** Interfaces adaptables que resguardan la simetría visual y la experiencia de usuario en múltiples resoluciones de pantalla[cite: 134, 376].
+
+---
+
+## 📁 Estructura del Proyecto
+
+[cite_start]El repositorio mantiene la organización sugerida para asegurar la escalabilidad y el orden del código fuente[cite: 348]:
+
+```text
+├── assets/          # Logos, imágenes y recursos visuales corporativos
+├── auth/            # Vistas funcionales de los dashboards y módulos secundarios
+├── css/             # Hojas de estilo unificadas y segregadas por interfaz
+├── index.html       # Punto de entrada principal que conecta directamente al Landing Page
+├── ia.md            # Documentación de utilización de Inteligencia Artificial
+└── README.md        # Documentación general del sistema
