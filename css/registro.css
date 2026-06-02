@@ -1,6 +1,8 @@
-
+/* ==========================================================================
+   ESTILOS GLOBALES (Sincronizados con el Login corporativo)
+   ========================================================================== */
 body {
-    background-color: #2E1A47; 
+    background-color: #2E1A47; /* Morado oscuro corporativo */
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -10,23 +12,24 @@ body {
     align-items: center;
 }
 
+/* CONTENEDOR PRINCIPAL (Ajustado exactamente a los 760px del Login) */
 .registro-container {
     width: 100%;
-    max-width: 1480px; 
-    padding: 1rem 1.5rem;
+    max-width: 760px; /* Evita que se vea gigante en pantallas grandes o despliegues */
+    padding: 1.5rem;
     box-sizing: border-box;
 }
 
 .registro-card {
     background-color: #FFFFFF;
-    border-radius: 35px; 
-    padding: 3rem 3.5rem;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+    border-radius: 20px; /* Bordes suaves unificados */
+    padding: 3rem 2.5rem; /* Espaciado interno balanceado */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     width: 100%;
     box-sizing: border-box;
-    margin-top: 25px;
 }
 
+/* CABECERA Y LOGO (Mismo tamaño y comportamiento simétrico) */
 .registro-header {
     position: relative;
     display: flex;
@@ -37,19 +40,20 @@ body {
 }
 
 .logo-img {
-    max-width: 770px; 
-    width: 100%;
+    max-width: 60%; /* Escala porcentual idéntica al Login */
+    width: auto;
     height: auto;
     display: block;
-    padding: 3rem 3.5rem;
+    padding: 0; /* Eliminado el padding gigante anterior */
 }
 
+/* Flecha de regreso posicionada correctamente */
 .btn-back {
     position: absolute;
     left: 0;
     color: #2E1A47;
     display: flex;
-    padding: 70px;
+    padding: 8px; /* Padding normal de botón táctil */
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -61,29 +65,30 @@ body {
     transform: scale(1.1);
 }
 
+/* TÍTULO DE LA PÁGINA */
 .registro-title {
     color: #2E1A47;
     text-align: center;
-    font-size: 4.5rem; 
+    font-size: 2.2rem; /* Normalizado de los 4.5rem exagerados */
     font-weight: 800;
     margin-top: 0;
-    margin-bottom: 2rem;
-    margin: -1.5rem auto 2rem auto;
+    margin-bottom: 2.5rem;
 }
 
+/* BLOQUE DE ALERTAS Y FEEDBACK */
 .feedback-container {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
     width: 100%;
-    max-width: 780px;
-    margin: 0 auto 2rem auto;
+    max-width: 550px; /* Centrado y acoplado al ancho del formulario */
+    margin: 0 auto 1.5rem auto;
 }
 
 .alert {
-    padding: 1rem 1.25rem;
-    border-radius: 30px;
-    font-size: 1.4rem;
+    padding: 0.85rem 1.2rem;
+    border-radius: 25px; /* Ovaladas según la línea gráfica */
+    font-size: 0.9rem;
     font-weight: 600;
     text-align: center;
     box-sizing: border-box;
@@ -102,12 +107,13 @@ body {
     border: 1px solid #f8b4b4;
 }
 
+/* DISEÑO DEL FORMULARIO (Malla de 2 columnas interna) */
 .registro-form {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem 1.75rem; 
+    gap: 1.25rem 1.25rem; 
     width: 100%;
-    max-width: 1080px;
+    max-width: 550px; /* Ancho máximo del bloque del contenido unificado */
     margin: 0 auto;
     text-align: left;
 }
@@ -128,22 +134,23 @@ body {
 .formulario-registro label,
 .formulario-registro-objetivos legend {
     display: block;
-    margin-bottom: 0.6rem;
-    color: #374151;
-    font-size: 1.95rem;
-    font-weight: 700; 
+    margin-bottom: 0.5rem;
+    color: #4b5563;
+    font-size: 0.95rem; /* Ajustado de los 1.95rem anteriores */
+    font-weight: 600; 
 }
 
+/* ENTRADAS DE TEXTO / INPUTS */
 .registro-form input[type="text"],
 .registro-form input[type="email"],
 .registro-form input[type="password"] {
     width: 100%;
-    padding: 0.95rem 1.5rem; 
+    padding: 0.8rem 1.2rem; /* Alto perfecto e idéntico al Login */
     border: 2px solid #2E1A47;
-    border-radius: 30px; 
-    font-size: 1.4rem;
-    background-color: #ffffff;
-    color: #2E1A47;
+    border-radius: 25px; /* Forma ovalada */
+    font-size: 0.95rem;
+    background-color: #fcfaff;
+    color: #4b5563;
     transition: all 0.3s ease;
     box-sizing: border-box;
 }
@@ -152,30 +159,34 @@ body {
     outline: none;
     border-color: #F2B705;
     box-shadow: 0 0 0 4px rgba(46, 26, 71, 0.15);
+    background-color: #ffffff;
 }
 
+/* Mensajes Inline debajo de los Inputs */
 .field-feedback.error-text {
     display: block;
     color: #dc3545;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    margin-top: 0.5rem;
-    margin-left: 1.2rem;
+    margin-top: 0.4rem;
+    margin-left: 1rem;
 }
 
+/* SECCIÓN CHECKBOXES (Objetivos) */
 .grupo-columnas {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 0.75rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 4%;
     margin-top: 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .opcion {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 1.5rem;
+    gap: 8px;
+    width: 48%; /* Dos opciones limpias por fila dentro del formulario */
+    font-size: 0.9rem;
     font-weight: 500;
     color: #4b5563;
     cursor: pointer;
@@ -183,8 +194,8 @@ body {
 
 .registro-form input[type="checkbox"] {
     accent-color: #2E1A47;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     cursor: pointer;
 }
 
@@ -192,31 +203,35 @@ body {
     margin-top: 0.5rem;
 }
 
+/* BOTÓN DE ACCIÓN PRINCIPAL */
 .btn-block {
     width: 100%;
-    background-color: #2E1A47  ; 
+    background-color: #2E1A47; 
     color: #FFFFFF;
-    padding: 1rem;
+    padding: 0.85rem;
     border: none;
-    border-radius: 30px;
-    font-size: 1.8rem;
-    font-weight: 700;
+    border-radius: 25px;
+    font-size: 1.05rem;
+    font-weight: 600;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(46, 26, 71, 0.2);
     transition: all 0.3s ease;
     box-sizing: border-box;
     margin-top: 1rem;
 }
 
 .btn-block:hover {
-    background-color: #140b21;
+    background-color: #1a0f29;
+    box-shadow: 0 6px 12px rgba(46, 26, 71, 0.35);
     transform: translateY(-1px);
 }
 
+/* ELEMENTOS DE CIERRE / ENLACES */
 .divider {
     border: 0;
     height: 1px;
     background-color: #e5e7eb;
-    margin: 2.5rem 0;
+    margin: 2rem 0;
 }
 
 .login-footer {
@@ -228,7 +243,7 @@ body {
 .footer-link {
     color: #2E1A47;
     text-decoration: none;
-    font-size: 1.6rem;
+    font-size: 0.95rem;
     font-weight: 700;
     transition: color 0.2s ease;
 }
