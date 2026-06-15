@@ -10,6 +10,7 @@
     </script>
     <script src="../js/auth-guard.js"></script>
     <script defer src="../js/crudUsuarios.js"></script>
+    <script defer src="../js/dashboardAdmin.js"></script>
 </head>
 <body>
 
@@ -18,13 +19,12 @@
             <img src="../assets/logo_empresa_letra_v1.png" alt="Logo SportClub" class="logo-img">
         </div>
         <div class="header-actions">
-            <a href="mantenimiento.html" class="btn-header btn-profile">👤 Mi Perfil</a>
-            <a href="login.html" class="btn-header btn-logout">🚪 Cerrar Sesión</a>
+            <a href="#" class="btn-header btn-profile" id="btnMiPerfilAdminHeader">👤 Mi Perfil</a>
+            <a href="#" class="btn-header btn-logout" id="logoutBtn">🚪 Cerrar Sesión</a>
         </div>
     </header>
 
     <div class="db-container">
-        
         <nav class="db-nav">
             <ul class="nav-list">
                 <li><a href="dashboardAdmin.html" class="nav-link">🛡️ Panel Global</a></li>
@@ -33,97 +33,63 @@
         </nav>
 
         <main class="db-main">
-            
             <section class="welcome-banner">
                 <h1>Gestión de Usuarios</h1>
-                <p>Administra los usuarios del sistema: visualiza, crea, edita y elimina registros de la base de datos de forma segura.</p>
             </section>
 
             <div id="crudMessageContainer" class="feedback-container"></div>
 
             <div class="grid-content full-width-grid">
                 
-                <article class="card">
+                <article class="card" id="cardListadoMaestro">
                     <header class="card-header-actions">
                         <h2>👥 Listado Maestro de Usuarios</h2>
                         <button id="btnAbrirCrear" class="btn-primary btn-success-action">➕ Nuevo Usuario</button>
                     </header>
-                    
                     <div class="card-body">
                         <table class="data-table">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Nombre Completo</th>
-                                    <th>Email</th>
-                                    <th>Rol</th>
-                                    <th>Fecha de Registro</th>
-                                    <th>Acciones</th>
+                                    <th>ID</th><th>Nombre</th><th>Email</th><th>Rol</th><th>Registro</th><th>Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody id="tablaUsuariosBody">
-                                </tbody>
+                            <tbody id="tablaUsuariosBody"></tbody>
                         </table>
+                    </div>
+                </article>
+
+                <article class="card hidden" id="moduloPerfilAdminCard">
+                    <header class="card-header" style="margin-bottom: 15px;">
+                        <h2>🛡️ Mi Perfil de Administrador</h2>
+                    </header>
+                    <div class="card-body">
+                        <div id="perfilAdminMessageContainer"></div>
+
+                        <div id="perfilAdminViewBlock">
+                            <p><strong>Nombre:</strong> <span id="viewAdminFullName">-</span></p>
+                            <p><strong>Email:</strong> <span id="viewAdminEmail">-</span></p>
+                            <button type="button" id="btnAdminEnableEdit" class="btn-primary">Editar Perfil</button>
+                        </div>
+
+                        <form id="perfilAdminForm" class="hidden" novalidate>
+                            <input type="text" id="perfilAdminFullName" placeholder="Nombre completo">
+                            <input type="email" id="perfilAdminEmail" placeholder="Email">
+                            <input type="date" id="perfilAdminBirthDate">
+                            
+                            <hr>
+                            <h3>🔒 Cambiar Contraseña</h3>
+                            <input type="password" id="currentAdminPassword" placeholder="Contraseña actual">
+                            <input type="password" id="newAdminPassword" placeholder="Nueva contraseña">
+                            <input type="password" id="confirmAdminPassword" placeholder="Confirmar nueva">
+                            
+                            <button type="submit" class="btn-primary">Guardar cambios</button>
+                            <button type="button" id="btnAdminCancelEdit" class="btn-secondary">Cancelar</button>
+                        </form>
                     </div>
                 </article>
 
             </div>
         </main>
     </div>
-
-    <div id="usuarioModal" class="modal-overlay modal-oculto">
-        <div class="modal-card">
-            <header class="modal-header">
-                <h2 id="modalTitulo">Formulario Nuevo Usuario</h2>
-                <span id="btnCerrarModal" class="btn-modal-close">&times;</span>
-            </header>
-            
-            <div class="modal-body">
-                <form id="usuarioForm" novalidate>
-                    <input type="hidden" id="crudUserId">
-
-                    <fieldset class="formulario-registro">
-                        <label for="crudFullName">Nombre Completo</label>
-                        <input type="text" id="crudFullName" placeholder="Ingresa Nombre y Apellido">
-                        <span class="field-feedback error-text" id="errorFullName"></span>
-                    </fieldset>
-
-                    <fieldset class="formulario-registro">
-                        <label for="crudEmail">Email</label>
-                        <input type="email" id="crudEmail" placeholder="correo@ejemplo.com">
-                        <span class="field-feedback error-text" id="errorEmail"></span>
-                    </fieldset>
-
-                    <fieldset class="formulario-registro">
-                        <label for="crudRole">Rol del Sistema</label>
-                        <select id="crudRole" class="select-personalizado">
-                            <option value="">-- Selecciona un Rol --</option>
-                            <option value="admin">Administrador (Admin)</option>
-                            <option value="coach">Entrenador (Coach)</option>
-                            <option value="user">Usuario (Cliente)</option>
-                        </select>
-                        <span class="field-feedback error-text" id="errorRole"></span>
-                    </fieldset>
-
-                    <fieldset class="formulario-registro" id="grupoPassword">
-                        <label for="crudPassword">Contraseña</label>
-                        <input type="password" id="crudPassword" placeholder="Mínimo 8 caracteres">
-                        <span class="field-feedback error-text" id="errorPassword"></span>
-                    </fieldset>
-
-                    <fieldset class="formulario-registro" id="grupoConfirmPassword">
-                        <label for="crudConfirmPassword">Confirmar Contraseña</label>
-                        <input type="password" id="crudConfirmPassword" placeholder="Repite la contraseña">
-                        <span class="field-feedback error-text" id="errorConfirmPassword"></span>
-                    </fieldset>
-
-                    <div class="modal-footer">
-                        <button type="submit" id="btnGuardarModal" class="btn-block">Guardar Usuario</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
 </body>
 </html>

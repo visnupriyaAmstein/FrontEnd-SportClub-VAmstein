@@ -30,7 +30,6 @@ body {
 
 .db-container { display: flex; min-height: calc(100vh - 64px); }
 
-/* Navegación  */
 .db-nav {
     width: 240px;
     background-color: #1a0f29; 
@@ -54,7 +53,6 @@ body {
 
 .db-main { flex-grow: 1; padding: 2rem; }
 
-/* Banner  */
 .welcome-banner {
     background: linear-gradient(135deg, #581c87, #3b0764);
     color: white;
@@ -110,11 +108,6 @@ body {
     font-weight: 600;
 }
 
-/* ==========================================================================
-   🛠️ EXTENSIÓN PARA EL MÓDULO DE GESTIÓN DE USUARIOS (CRUD)
-   ========================================================================== */
-
-/* Ajuste de ancho completo para la grilla cuando hay tablas grandes */
 .full-width-grid {
     grid-template-columns: 1fr !important;
 }
@@ -133,7 +126,6 @@ body {
     font-size: 1.3rem;
 }
 
-/* ➕ Botón Nuevo Usuario (Estilo Exclusivo) */
 .btn-success-action {
     background-color: #1e7e34 !important;
     color: #ffffff !important;
@@ -151,9 +143,6 @@ body {
     box-shadow: 0 4px 8px rgba(20, 85, 34, 0.2);
 }
 
-/* ==========================================================================
-   🏷️ BADGES DE ROLES (OBLIGATORIOS POR RÚBRICA)
-   ========================================================================== */
 .badge {
     display: inline-block;
     padding: 0.35rem 0.75rem;
@@ -166,25 +155,22 @@ body {
 
 .badge.admin {
     background-color: #fde8e8;
-    color: #f83a3a; /* Rojo / Morado */
+    color: #f83a3a; 
     border: 1px solid #f8b4b4;
 }
 
 .badge.coach {
     background-color: #e0f2fe;
-    color: #0369a1; /* Azul */
+    color: #0369a1; 
     border: 1px solid #bae6fd;
 }
 
 .badge.user {
     background-color: #e6f7ed;
-    color: #1e7e34; /* Verde */
+    color: #1e7e34; 
     border: 1px solid #c3e6cb;
 }
 
-/* ==========================================================================
-   🎛️ BOTONES DE ACCIÓN EN LA TABLA (✏️ / 🗑️)
-   ========================================================================== */
 .btn-accion {
     padding: 6px 10px;
     border: none;
@@ -195,7 +181,6 @@ body {
     transition: all 0.2s ease;
 }
 
-/* Editar: Amarillo/Azul según pauta */
 .btn-editar {
     background-color: #F2B705;
     color: #2E1A47;
@@ -206,7 +191,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Eliminar: Rojo */
 .btn-eliminar {
     background-color: #dc3545;
     color: #ffffff;
@@ -217,16 +201,13 @@ body {
     transform: scale(1.05);
 }
 
-/* ==========================================================================
-   🪟 MODAL COHESIVO (OCULTO/VISIBLE)
-   ========================================================================== */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(46, 26, 71, 0.6); /* Fondo morado traslúcido */
+    background-color: rgba(46, 26, 71, 0.6); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -278,7 +259,6 @@ body {
     margin-top: 1.5rem;
 }
 
-/* Clases de control de estado del Modal */
 .modal-oculto {
     display: none !important;
 }
@@ -288,7 +268,6 @@ body {
     to { transform: translateY(0); opacity: 1; }
 }
 
-/* Elementos de formulario específicos para el modal */
 .select-personalizado {
     width: 100%;
     padding: 0.8rem 1.2rem;
@@ -306,22 +285,23 @@ body {
     border-color: #F2B705;
 }
 
-/* ==========================================================================
-   🚨 ESTILOS DE VALIDACIÓN VISUAL (REQUERIDO POR PAUTA)
-   ========================================================================== */
 .registro-form input.is-invalid,
 .formulario-registro input.is-invalid,
 select.is-invalid {
-    border-color: #dc3545 !important; /* Borde rojo si hay error */
+    border-color: #dc3545 !important; 
     background-color: #fde8e8;
 }
 
 .field-feedback.error-text {
     display: block;
-    color: #dc3545; /* Mensajes de error en rojo */
+    color: #dc3545; 
     font-size: 0.8rem;
     font-weight: 600;
     margin-top: 0.4rem;
     margin-left: 1rem;
-    min-height: 1.2rem; /* Evita saltos bruscos de diseño */
+    min-height: 1.2rem; 
+}
+
+.hidden {
+    display: none !important;
 }
