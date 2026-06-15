@@ -109,3 +109,219 @@ body {
     font-size: 0.8rem;
     font-weight: 600;
 }
+
+/* ==========================================================================
+   🛠️ EXTENSIÓN PARA EL MÓDULO DE GESTIÓN DE USUARIOS (CRUD)
+   ========================================================================== */
+
+/* Ajuste de ancho completo para la grilla cuando hay tablas grandes */
+.full-width-grid {
+    grid-template-columns: 1fr !important;
+}
+
+.card-header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.card-header-actions h2 {
+    margin: 0;
+    color: #2E1A47;
+    font-size: 1.3rem;
+}
+
+/* ➕ Botón Nuevo Usuario (Estilo Exclusivo) */
+.btn-success-action {
+    background-color: #1e7e34 !important;
+    color: #ffffff !important;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-success-action:hover {
+    background-color: #145522 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(20, 85, 34, 0.2);
+}
+
+/* ==========================================================================
+   🏷️ BADGES DE ROLES (OBLIGATORIOS POR RÚBRICA)
+   ========================================================================== */
+.badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 12px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.badge.admin {
+    background-color: #fde8e8;
+    color: #f83a3a; /* Rojo / Morado */
+    border: 1px solid #f8b4b4;
+}
+
+.badge.coach {
+    background-color: #e0f2fe;
+    color: #0369a1; /* Azul */
+    border: 1px solid #bae6fd;
+}
+
+.badge.user {
+    background-color: #e6f7ed;
+    color: #1e7e34; /* Verde */
+    border: 1px solid #c3e6cb;
+}
+
+/* ==========================================================================
+   🎛️ BOTONES DE ACCIÓN EN LA TABLA (✏️ / 🗑️)
+   ========================================================================== */
+.btn-accion {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-right: 6px;
+    transition: all 0.2s ease;
+}
+
+/* Editar: Amarillo/Azul según pauta */
+.btn-editar {
+    background-color: #F2B705;
+    color: #2E1A47;
+}
+
+.btn-editar:hover {
+    background-color: #d69e04;
+    transform: scale(1.05);
+}
+
+/* Eliminar: Rojo */
+.btn-eliminar {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+.btn-eliminar:hover {
+    background-color: #bd2130;
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   🪟 MODAL COHESIVO (OCULTO/VISIBLE)
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(46, 26, 71, 0.6); /* Fondo morado traslúcido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.modal-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    animation: bajarModal 0.3s ease-out;
+}
+
+.modal-header {
+    background-color: #2E1A47;
+    color: #ffffff;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.btn-modal-close {
+    font-size: 1.8rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.btn-modal-close:hover {
+    color: #F2B705;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-footer {
+    margin-top: 1.5rem;
+}
+
+/* Clases de control de estado del Modal */
+.modal-oculto {
+    display: none !important;
+}
+
+@keyframes bajarModal {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Elementos de formulario específicos para el modal */
+.select-personalizado {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border: 2px solid #2E1A47;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    background-color: #fcfaff;
+    color: #4b5563;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.select-personalizado:focus {
+    outline: none;
+    border-color: #F2B705;
+}
+
+/* ==========================================================================
+   🚨 ESTILOS DE VALIDACIÓN VISUAL (REQUERIDO POR PAUTA)
+   ========================================================================== */
+.registro-form input.is-invalid,
+.formulario-registro input.is-invalid,
+select.is-invalid {
+    border-color: #dc3545 !important; /* Borde rojo si hay error */
+    background-color: #fde8e8;
+}
+
+.field-feedback.error-text {
+    display: block;
+    color: #dc3545; /* Mensajes de error en rojo */
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 0.4rem;
+    margin-left: 1rem;
+    min-height: 1.2rem; /* Evita saltos bruscos de diseño */
+}

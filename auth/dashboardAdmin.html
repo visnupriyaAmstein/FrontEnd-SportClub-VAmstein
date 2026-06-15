@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Administrador - SportClub</title>
+    <title>Gestión de Usuarios - SportClub</title>
     <link href="../css/dashboardAdmin.css" rel="stylesheet">
+    <script>
+        window.requiredRole = 'admin';
+    </script>
+    <script src="../js/auth-guard.js"></script>
+    <script defer src="../js/crudUsuarios.js"></script>
 </head>
 <body>
 
@@ -19,62 +24,105 @@
     </header>
 
     <div class="db-container">
+        
         <nav class="db-nav">
             <ul class="nav-list">
-                <li><a href="dashboardAdmin.html" class="nav-link active">🛡️ Panel Global</a></li>
-                <li><a href="mantenimiento.html" class="nav-link">👥 Control de Usuarios</a></li>
-                <li><a href="mantenimiento.html" class="nav-link">⚙️ Gestión de Bloques</a></li>
-                <li><a href="mantenimiento.html" class="nav-link">📊 Reportes Financieros</a></li>
+                <li><a href="dashboardAdmin.html" class="nav-link">🛡️ Panel Global</a></li>
+                <li><a href="#" class="nav-link active">👥 Usuarios</a></li>
             </ul>
         </nav>
 
         <main class="db-main">
             
             <section class="welcome-banner">
-                <h1>Consola de Administración Central</h1>
-                <p>Monitoreo del estado del servidor estático, altas corporativas y control de reportería.</p>
+                <h1>Gestión de Usuarios</h1>
+                <p>Administra los usuarios del sistema: visualiza, crea, edita y elimina registros de la base de datos de forma segura.</p>
             </section>
 
-            <div class="grid-content">
+            <div id="crudMessageContainer" class="feedback-container"></div>
+
+            <div class="grid-content full-width-grid">
                 
                 <article class="card">
-                    <header class="card-header">
-                        <h2>⚙️ Estado Operativo del Club</h2>
+                    <header class="card-header-actions">
+                        <h2>👥 Listado Maestro de Usuarios</h2>
+                        <button id="btnAbrirCrear" class="btn-primary btn-success-action">➕ Nuevo Usuario</button>
                     </header>
-                    <div class="card-body">
-                        <h3>Métricas de Uso</h3>
-                        <p><strong>Usuarios Activos:</strong> 342 Hoy</p>
-                        <p><strong>Cupos Ocupados:</strong> 87% Semanal</p>
-                        <a href="mantenimiento.html" class="btn-primary">Ver Auditoría</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <header class="card-header">
-                        <h2>🔒 Solicitudes de Registro Pendientes</h2>
-                    </header>
+                    
                     <div class="card-body">
                         <table class="data-table">
                             <thead>
                                 <tr>
-                                    <th>Solicitante</th>
-                                    <th>Plan Solicitado</th>
-                                    <th>Acción</th>
+                                    <th>ID</th>
+                                    <th>Nombre Completo</th>
+                                    <th>Email</th>
+                                    <th>Rol</th>
+                                    <th>Fecha de Registro</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Valeria Rojas</td>
-                                    <td>Anual Premium</td>
-                                    <td><span class="badge danger">Pendiente</span></td>
-                                </tr>
-                            </tbody>
+                            <tbody id="tablaUsuariosBody">
+                                </tbody>
                         </table>
                     </div>
                 </article>
 
             </div>
         </main>
+    </div>
+
+    <div id="usuarioModal" class="modal-overlay modal-oculto">
+        <div class="modal-card">
+            <header class="modal-header">
+                <h2 id="modalTitulo">Formulario Nuevo Usuario</h2>
+                <span id="btnCerrarModal" class="btn-modal-close">&times;</span>
+            </header>
+            
+            <div class="modal-body">
+                <form id="usuarioForm" novalidate>
+                    <input type="hidden" id="crudUserId">
+
+                    <fieldset class="formulario-registro">
+                        <label for="crudFullName">Nombre Completo</label>
+                        <input type="text" id="crudFullName" placeholder="Ingresa Nombre y Apellido">
+                        <span class="field-feedback error-text" id="errorFullName"></span>
+                    </fieldset>
+
+                    <fieldset class="formulario-registro">
+                        <label for="crudEmail">Email</label>
+                        <input type="email" id="crudEmail" placeholder="correo@ejemplo.com">
+                        <span class="field-feedback error-text" id="errorEmail"></span>
+                    </fieldset>
+
+                    <fieldset class="formulario-registro">
+                        <label for="crudRole">Rol del Sistema</label>
+                        <select id="crudRole" class="select-personalizado">
+                            <option value="">-- Selecciona un Rol --</option>
+                            <option value="admin">Administrador (Admin)</option>
+                            <option value="coach">Entrenador (Coach)</option>
+                            <option value="user">Usuario (Cliente)</option>
+                        </select>
+                        <span class="field-feedback error-text" id="errorRole"></span>
+                    </fieldset>
+
+                    <fieldset class="formulario-registro" id="grupoPassword">
+                        <label for="crudPassword">Contraseña</label>
+                        <input type="password" id="crudPassword" placeholder="Mínimo 8 caracteres">
+                        <span class="field-feedback error-text" id="errorPassword"></span>
+                    </fieldset>
+
+                    <fieldset class="formulario-registro" id="grupoConfirmPassword">
+                        <label for="crudConfirmPassword">Confirmar Contraseña</label>
+                        <input type="password" id="crudConfirmPassword" placeholder="Repite la contraseña">
+                        <span class="field-feedback error-text" id="errorConfirmPassword"></span>
+                    </fieldset>
+
+                    <div class="modal-footer">
+                        <button type="submit" id="btnGuardarModal" class="btn-block">Guardar Usuario</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
 </body>
