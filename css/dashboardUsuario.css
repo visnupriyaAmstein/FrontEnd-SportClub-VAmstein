@@ -142,3 +142,60 @@ body {
     font-size: 0.8rem;
     font-weight: 600;
 }
+
+.badge { 
+    padding: 4px 8px; 
+    border-radius: 4px; 
+    font-weight: bold; 
+    font-size: 0.85em; 
+    text-transform: uppercase; 
+}
+
+.badge.user { 
+    background-color: #d4edda; 
+    color: #155724; 
+} 
+
+.badge.coach { 
+    background-color: #cce5ff; 
+    color: #004085; 
+} 
+
+.badge.admin { 
+    background-color: #f8d7da; 
+    color: #721c24; 
+} 
+
+.is-invalid { 
+    border: 1px solid #dc3545 !important; 
+}
+
+.error-msg { 
+    color: #dc3545; 
+    font-weight: 600; 
+    display: block; 
+    margin-top: 4px; 
+    font-size: 0.85rem; 
+}
+
+.hidden { 
+    display: none !important; 
+}
+
+.btn-edit { 
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    padding: 8px 12px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+}
+
+.btn-cancel { 
+    background-color: #6c757d; 
+    color: white; 
+    border: none; 
+    padding: 8px 12px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+}
