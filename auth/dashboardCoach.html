@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Coach - SportClub</title>
     <link href="../css/dashboardCoach.css" rel="stylesheet">
+    <link href="../css/modal-perfil.css" rel="stylesheet">
     <script>
         window.requiredRole = 'coach';
     </script>
@@ -35,10 +36,11 @@
         <main class="db-main">
             <section class="welcome-banner">
                 <h1>Panel Técnico de Entrenamiento</h1>
+                <p>Gestiona tus clases y el seguimiento de tus alumnos.</p>
             </section>
 
             <div class="grid-content">
-                
+
                 <article class="card" id="cardPanelCoach">
                     <header class="card-header">
                         <h2>⏱️ Bloque Actual</h2>
@@ -50,30 +52,10 @@
                     </div>
                 </article>
 
-                <article class="card hidden" id="moduloPerfilCoachCard">
-                    <header class="card-header">
-                        <h2>👤 Mi Perfil de Coach</h2>
-                    </header>
-                    <div class="card-body">
-                        <div id="perfilViewBlock">
-                            <p><strong>Nombre:</strong> <span id="profileName">-</span></p>
-                            <p><strong>Email:</strong> <span id="profileEmail">-</span></p>
-                            <button id="btnEnableEdit" class="btn-primary">Editar Perfil</button>
-                        </div>
-
-                        <form id="perfilEditForm" class="hidden">
-                            <label>Nombre:</label>
-                            <input type="text" id="editName" class="form-control" required>
-                            <label>Email:</label>
-                            <input type="email" id="editEmail" class="form-control" required>
-                            <button type="submit" class="btn-primary">Guardar</button>
-                            <button type="button" id="btnCancelEdit" class="btn-secondary">Cancelar</button>
-                        </form>
-                    </div>
-                </article>
-
             </div>
         </main>
     </div>
+
+    <script src="../js/modal-perfil.js"></script>
 </body>
 </html>

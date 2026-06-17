@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Usuarios - SportClub</title>
     <link href="../css/dashboardAdmin.css" rel="stylesheet">
+    <link href="../css/modal-perfil.css" rel="stylesheet">
     <script>
         window.requiredRole = 'admin';
     </script>
     <script src="../js/auth-guard.js"></script>
-    <script defer src="../js/crudUsuarios.js"></script>
     <script defer src="../js/dashboardAdmin.js"></script>
 </head>
 <body>
@@ -27,69 +27,32 @@
     <div class="db-container">
         <nav class="db-nav">
             <ul class="nav-list">
-                <li><a href="dashboardAdmin.html" class="nav-link">🛡️ Panel Global</a></li>
-                <li><a href="#" class="nav-link active">👥 Usuarios</a></li>
+                <li><a href="dashboardAdmin.html" class="nav-link active">🛡️ Panel Global</a></li>
+                <li><a href="crudUsuarios.html" class="nav-link">👥 Usuarios</a></li>
             </ul>
         </nav>
 
         <main class="db-main">
             <section class="welcome-banner">
-                <h1>Gestión de Usuarios</h1>
+                <h1>🛡️ Panel de Administración</h1>
+                <p>Gestiona usuarios, roles y configuraciones del sistema.</p>
             </section>
 
-            <div id="crudMessageContainer" class="feedback-container"></div>
-
-            <div class="grid-content full-width-grid">
-                
-                <article class="card" id="cardListadoMaestro">
-                    <header class="card-header-actions">
-                        <h2>👥 Listado Maestro de Usuarios</h2>
-                        <button id="btnAbrirCrear" class="btn-primary btn-success-action">➕ Nuevo Usuario</button>
+            <div class="grid-content">
+                <article class="card">
+                    <header class="card-header">
+                        <h2>📊 Resumen del Sistema</h2>
                     </header>
                     <div class="card-body">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th><th>Nombre</th><th>Email</th><th>Rol</th><th>Registro</th><th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tablaUsuariosBody"></tbody>
-                        </table>
+                        <p>Bienvenido al panel de administración de SportClub.</p>
+                        <p>Desde aquí puedes gestionar todos los usuarios y configuraciones.</p>
+                        <a href="crudUsuarios.html" class="btn-primary">Gestionar Usuarios</a>
                     </div>
                 </article>
-
-                <article class="card hidden" id="moduloPerfilAdminCard">
-                    <header class="card-header" style="margin-bottom: 15px;">
-                        <h2>🛡️ Mi Perfil de Administrador</h2>
-                    </header>
-                    <div class="card-body">
-                        <div id="perfilAdminMessageContainer"></div>
-
-                        <div id="perfilAdminViewBlock">
-                            <p><strong>Nombre:</strong> <span id="viewAdminFullName">-</span></p>
-                            <p><strong>Email:</strong> <span id="viewAdminEmail">-</span></p>
-                            <button type="button" id="btnAdminEnableEdit" class="btn-primary">Editar Perfil</button>
-                        </div>
-
-                        <form id="perfilAdminForm" class="hidden" novalidate>
-                            <input type="text" id="perfilAdminFullName" placeholder="Nombre completo">
-                            <input type="email" id="perfilAdminEmail" placeholder="Email">
-                            <input type="date" id="perfilAdminBirthDate">
-                            
-                            <hr>
-                            <h3>🔒 Cambiar Contraseña</h3>
-                            <input type="password" id="currentAdminPassword" placeholder="Contraseña actual">
-                            <input type="password" id="newAdminPassword" placeholder="Nueva contraseña">
-                            <input type="password" id="confirmAdminPassword" placeholder="Confirmar nueva">
-                            
-                            <button type="submit" class="btn-primary">Guardar cambios</button>
-                            <button type="button" id="btnAdminCancelEdit" class="btn-secondary">Cancelar</button>
-                        </form>
-                    </div>
-                </article>
-
             </div>
         </main>
     </div>
+
+    <script src="../js/modal-perfil.js"></script>
 </body>
 </html>

@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Usuario - SportClub</title>
     <link href="../css/dashboardUsuario.css" rel="stylesheet">
+    <link href="../css/modal-perfil.css" rel="stylesheet">
     <script>
         window.requiredRole = 'user';
     </script>
     <script src="../js/auth-guard.js"></script>
-   
 </head>
 <body>
 
@@ -34,14 +34,14 @@
         </nav>
 
         <main class="db-main">
-            
+
             <section class="welcome-banner">
                 <h1>¡Hola, <span id="nombreUsuarioHeader">Deportista</span>!</h1>
                 <p>"Tu mejor versión comienza hoy." Recuerda revisar tus reservas de clases para esta semana.</p>
             </section>
 
             <div class="grid-content">
-                
+
                 <article class="card">
                     <header class="card-header">
                         <h2>📅 Próxima Reserva</h2>
@@ -83,76 +83,11 @@
                     </div>
                 </article>
 
-                <article class="card hidden" id="moduloPerfilCard">
-                    <header class="card-header">
-                        <h2>👤 Mi Perfil / Perfil de Usuario</h2>
-                        <p style="font-size: 0.9rem; color: #555; margin: 4px 0 0 0;">Gestiona tu información personal</p>
-                    </header>
-                    <div class="card-body">
-                        <div id="perfilMessageContainer"></div>
-
-                        <div id="perfilViewBlock">
-                            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-                                <div style="width: 60px; height: 60px; background: #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">👤</div>
-                                <div>
-                                    <h3 id="viewFullName" style="margin: 0;">-</h3>
-                                    <span id="viewRoleBadge" class="badge">user</span>
-                                </div>
-                            </div>
-                            <p><strong>📧 Email:</strong> <span id="viewEmail">-</span></p>
-                            <p><strong>📅 Fecha de Nacimiento:</strong> <span id="viewBirthDate">-</span></p>
-                            <button type="button" id="btnEnableEdit" class="btn-edit" style="width: 100%; margin-top: 10px;">Editar Perfil</button>
-                        </div>
-
-                        <form id="perfilForm" class="form-perfil hidden">
-                            <div class="form-group" style="margin-bottom: 12px;">
-                                <label style="display:block; margin-bottom:4px; font-weight:600;">Nombre Completo:</label>
-                                <input type="text" id="perfilFullName" class="form-control" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
-                                <small id="errorPerfilName" class="error-msg"></small>
-                            </div>
-
-                            <div class="form-group" style="margin-bottom: 12px;">
-                                <label style="display:block; margin-bottom:4px; font-weight:600;">Correo Electrónico:</label>
-                                <input type="email" id="perfilEmail" class="form-control" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
-                                <small id="errorPerfilEmail" class="error-msg"></small>
-                            </div>
-
-                            <div class="form-group" style="margin-bottom: 12px;">
-                                <label style="display:block; margin-bottom:4px; font-weight:600;">Fecha de Nacimiento:</label>
-                                <input type="date" id="perfilBirthDate" class="form-control" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
-                                <small id="errorPerfilBirth" class="error-msg"></small>
-                            </div>
-
-                            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
-                            
-                            <h3>🔒 Cambiar Contraseña</h3>
-                            <div class="form-group" style="margin-bottom: 12px;">
-                                <label style="display:block; margin-bottom:4px; font-weight:600;">Contraseña Actual:</label>
-                                <input type="password" id="currentPassword" class="form-control" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
-                            </div>
-                            <div class="form-group" style="margin-bottom: 12px;">
-                                <label style="display:block; margin-bottom:4px; font-weight:600;">Nueva Contraseña (mín. 8 caracteres):</label>
-                                <input type="password" id="newPassword" class="form-control" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
-                                <small id="errorNewPassword" class="error-msg"></small>
-                            </div>
-                            <div class="form-group" style="margin-bottom: 16px;">
-                                <label style="display:block; margin-bottom:4px; font-weight:600;">Confirmar Contraseña:</label>
-                                <input type="password" id="confirmPassword" class="form-control" style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
-                                <small id="errorConfirmPassword" class="error-msg"></small>
-                            </div>
-
-                            <div style="display: flex; gap: 10px;">
-                                <button type="submit" class="btn-primary" style="flex: 2; border: none; padding: 10px; cursor: pointer; background-color: #28a745; color: white; border-radius: 4px; font-weight: bold;">Guardar cambios</button>
-                                <button type="button" id="btnCancelEdit" class="btn-cancel" style="flex: 1;">Cancelar</button>
-                            </div>
-                        </form>
-                    </div>
-                </article>
-                
             </div>
         </main>
     </div>
 
     <script src="../js/dashboardUsuario.js"></script>
+    <script src="../js/modal-perfil.js"></script>
 </body>
 </html>
