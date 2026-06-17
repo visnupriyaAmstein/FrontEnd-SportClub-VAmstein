@@ -1,13 +1,13 @@
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background-color: rgba(20, 10, 40, 0.65);
+    background: linear-gradient(135deg, rgba(20,10,40,0.7), rgba(40,20,65,0.6));
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
     padding: 1rem;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(3px);
     transition: opacity 0.25s ease;
 }
 
@@ -32,13 +32,27 @@
 }
 
 .modal-header {
-    background: linear-gradient(135deg, #2E1A47, #4a1f6e);
+    background: linear-gradient(120deg, #2E1A47, #581c87 60%, #6b21a8);
     color: #ffffff;
     padding: 1.2rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 20px 20px 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-header::before {
+    content: "";
+    position: absolute;
+    top: -60%;
+    right: -15%;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(242,183,5,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
 .modal-header h2 {
@@ -79,13 +93,14 @@
 .modal-perfil-avatar {
     width: 56px;
     height: 56px;
-    background: #ede8f7;
+    background: linear-gradient(135deg, #ede8f7, #ddd2f0);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
     flex-shrink: 0;
+    box-shadow: 0 3px 8px rgba(88,28,135,0.15);
 }
 
 .modal-perfil-nombre {
@@ -198,6 +213,13 @@
     font-weight: 700;
     padding: 0.75rem;
     border-radius: 20px;
+    background: linear-gradient(135deg, #581c87, #6b21a8);
+    box-shadow: 0 3px 10px rgba(88,28,135,0.3);
+    transition: all 0.25s ease;
+}
+.modal-btn-guardar:hover {
+    background: linear-gradient(135deg, #6b21a8, #3b0764);
+    transform: translateY(-1px);
 }
 
 .btn-modal-cancel {
