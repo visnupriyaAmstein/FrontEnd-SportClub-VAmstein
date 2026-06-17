@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios - SportClub</title>
+    <link href="../css/dashboardAdmin.css" rel="stylesheet">
+    <link href="../css/modal-perfil.css" rel="stylesheet">
+    <script>
+        window.requiredRole = 'admin';
+    </script>
+    <script src="../js/auth-guard.js"></script>
+</head>
+<body>
+
+    <header class="db-header">
+        <div class="header-brand">
+            <img src="../assets/logo_empresa_letra_v1.png" alt="Logo SportClub" class="logo-img">
+        </div>
+        <div class="header-actions">
+            <a href="#" class="btn-header btn-profile" id="btnMiPerfilAdminHeader">👤 Mi Perfil</a>
+            <a href="#" class="btn-header btn-logout" id="logoutBtn">🚪 Cerrar Sesión</a>
+        </div>
+    </header>
+
+    <div class="db-container">
+        <nav class="db-nav">
+            <ul class="nav-list">
+                <li><a href="dashboardAdmin.html" class="nav-link">🛡️ Panel Global</a></li>
+                <li><a href="crudUsuarios.html" class="nav-link active">👥 Usuarios</a></li>
+            </ul>
+        </nav>
+
+        <main class="db-main">
+            <section class="welcome-banner">
+                <h1>👥 Gestión de Usuarios</h1>
+            </section>
+
+            <div id="crudMessageContainer" class="feedback-container"></div>
+
+            <div class="grid-content full-width-grid">
+
+                <article class="card" id="cardListadoMaestro">
+                    <header class="card-header-actions">
+                        <h2>👥 Listado Maestro de Usuarios</h2>
+                        <button id="btnAbrirCrear" class="btn-primary btn-success-action">➕ Nuevo Usuario</button>
+                    </header>
+                    <div class="card-body">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                    <th>Rol</th>
+                                    <th>Registro</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaUsuariosBody"></tbody>
+                        </table>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+    </div>
+
+    <div id="usuarioModal" class="modal-overlay modal-oculto" role="dialog" aria-modal="true">
+        <div class="modal-card">
+
+            <header class="modal-header">
+                <h2 id="modalTitulo">➕ Registrar Nuevo Usuario</h2>
+                <span class="btn-modal-close" id="btnCerrarModal" title="Cerrar">&times;</span>
+            </header>
+
+            <div class="modal-body">
+                <form id="usuarioForm" novalidate>
+                    <input type="hidden" id="crudUserId">
+
+                    <div class="modal-form-group">
+                        <label class="modal-label">Nombre Completo</label>
+                        <input type="text" id="crudFullName" class="modal-input" placeholder="Ej: María González">
+                        <small id="errorFullName" class="modal-error-msg"></small>
+                    </div>
+
+                    <div class="modal-form-group">
+                        <label class="modal-label">Correo Electrónico</label>
+                        <input type="email" id="crudEmail" class="modal-input" placeholder="correo@ejemplo.com">
+                        <small id="errorEmail" class="modal-error-msg"></small>
+                    </div>
+
+                    <div class="modal-form-group">
+                        <label class="modal-label">Rol del Usuario</label>
+                        <select id="crudRole" class="modal-input select-personalizado">
+                            <option value="">— Selecciona un rol —</option>
+                            <option value="user">👤 Usuario</option>
+                            <option value="coach">🏋️ Coach</option>
+                            <option value="admin">🛡️ Administrador</option>
+                        </select>
+                        <small id="errorRole" class="modal-error-msg"></small>
+                    </div>
+
+                    <div class="modal-form-group">
+                        <label class="modal-label">Fecha de Nacimiento</label>
+                        <input type="date" id="crudBirthDate" class="modal-input">
+                        <small id="errorBirthDate" class="modal-error-msg"></small>
+                    </div>
+
+                    <hr class="modal-divider">
+
+                    <div id="grupoPassword" class="modal-form-group">
+                        <label class="modal-label">Contraseña <span class="modal-opcional">(mín. 8 caracteres)</span></label>
+                        <input type="password" id="crudPassword" class="modal-input" placeholder="Nueva contraseña">
+                        <small id="errorPassword" class="modal-error-msg"></small>
+                    </div>
+
+                    <div id="grupoConfirmPassword" class="modal-form-group">
+                        <label class="modal-label">Confirmar Contraseña</label>
+                        <input type="password" id="crudConfirmPassword" class="modal-input" placeholder="Repite la contraseña">
+                        <small id="errorConfirmPassword" class="modal-error-msg"></small>
+                    </div>
+
+                    <div class="modal-footer-btns">
+                        <button type="submit" class="btn-primary modal-btn-guardar">💾 Guardar</button>
+                        <button type="button" id="btnCancelarModal" class="btn-modal-cancel">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/crudUsuarios.js"></script>
+    <script src="../js/modal-perfil.js"></script>
+</body>
+</html>

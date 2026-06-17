@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Usuario - SportClub</title>
     <link href="../css/dashboardUsuario.css" rel="stylesheet">
+    <link href="../css/modal-perfil.css" rel="stylesheet">
+    <script>
+        window.requiredRole = 'user';
+    </script>
+    <script src="../js/auth-guard.js"></script>
 </head>
 <body>
 
@@ -13,8 +18,8 @@
             <img src="../assets/logo_empresa_letra_v1.png" alt="Logo SportClub" class="logo-img">
         </div>
         <div class="header-actions">
-            <a href="mantenimiento.html" class="btn-header btn-profile">👤 Mi Perfil</a>
-            <a href="login.html" class="btn-header btn-logout">🚪 Cerrar Sesión</a>
+            <a href="#" class="btn-header btn-profile" id="btnMiPerfilHeader">👤 Mi Perfil</a>
+            <a href="#" class="btn-header btn-logout" id="logoutBtn">🚪 Cerrar Sesión</a>
         </div>
     </header>
 
@@ -29,14 +34,14 @@
         </nav>
 
         <main class="db-main">
-            
+
             <section class="welcome-banner">
-                <h1>¡Hola, Deportista!</h1>
+                <h1>¡Hola, <span id="nombreUsuarioHeader">Deportista</span>!</h1>
                 <p>"Tu mejor versión comienza hoy." Recuerda revisar tus reservas de clases para esta semana.</p>
             </section>
 
             <div class="grid-content">
-                
+
                 <article class="card">
                     <header class="card-header">
                         <h2>📅 Próxima Reserva</h2>
@@ -66,21 +71,23 @@
                                 <tr>
                                     <td>Cardio HIIT</td>
                                     <td>45 min</td>
-                                    <td><span class="badge success">Completado</span></td>
+                                    <td><span class="badge user">Completado</span></td>
                                 </tr>
                                 <tr>
                                     <td>Musculación</td>
                                     <td>60 min</td>
-                                    <td><span class="badge success">Completado</span></td>
+                                    <td><span class="badge user">Completado</span></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </article>
-                
+
             </div>
         </main>
     </div>
 
+    <script src="../js/dashboardUsuario.js"></script>
+    <script src="../js/modal-perfil.js"></script>
 </body>
 </html>

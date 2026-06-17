@@ -125,3 +125,36 @@ Instalación y despliegue: Comandos para clonar en local y el enlace directo (UR
 Modificaciones realizadas: Diseñé un archivo README.md con un enfoque comercial, añadí marcadores para enlazar las imágenes de la app, inserté el enlace oficial de GitHub Pages e incluí una sección de créditos al final.
 
 Justificación: Permite que cualquier persona, usuario o evaluador comprenda el alcance técnico del sistema, visualice las interfaces directamente desde el repositorio y acceda al sitio web en producción en menos de un minuto.
+
+Entrada 6
+Herramienta utilizada: Gemini
+Fecha: 14 de junio de 2026
+Prompt utilizado: ¿Cuál es la mejor forma de consumir una API en JavaScript?
+Resultado generado: Utiliza la API nativa fetch() dentro de una función async con bloques try/catch para manejar errores. Es el estándar moderno, ligero y eficiente para peticiones HTTP sin dependencias externas.
+Modificaciones realizadas: Implementé el servicio de consumo de datos en el archivo js/api.js siguiendo el patrón async/await.
+Justificación: Garantiza un código limpio, legible y asincrónico que evita el bloqueo del hilo principal durante la carga de datos del backend.
+
+Entrada 7
+Herramienta utilizada: Gemini
+Fecha: 15 de junio de 2026
+Prompt utilizado: ¿Cómo puedo crear un modal funcional con HTML, CSS y JS?
+Resultado generado: Define un elemento <dialog> en HTML, contrólalo con .showModal() y .close() desde JS, y usa CSS para centrarlo y oscurecer el fondo (::backdrop). Es la forma más accesible y nativa.
+Modificaciones realizadas: Sustituí las ventanas de alerta por elementos <dialog> personalizados para las confirmaciones de acciones del CRUD.
+Justificación: Mejora significativamente la experiencia de usuario al mantener el contexto de la página sin recargas ni navegación externa.
+
+Entrada 8
+Herramienta utilizada: Gemini
+Fecha: 16 de junio de 2026
+Prompt utilizado: ¿Cuál es la mejor forma de validar credenciales en el cliente?
+Resultado generado: Realiza una validación básica en el cliente usando atributos required y pattern (Regex) para formato, pero siempre valida los datos finales en el servidor. Nunca confíes solo en el frontend para seguridad.
+Modificaciones realizadas: Añadí validaciones de tipo de dato y longitud en los inputs del formulario de login antes del envío.
+Justificación: Proporciona feedback inmediato al usuario y asegura que los datos enviados cumplan con el formato esperado antes de llegar al backend.
+
+Entrada 9
+Herramienta utilizada: Gemini
+Fecha: 17 de junio de 2026
+Prompt utilizado: ¿Cómo puedo hacer que mi layout sea responsive de forma sencilla con CSS?
+Resultado generado: Usa CSS Grid para la estructura principal y Flexbox para alinear elementos internos. Complementa con media queries ajustando el ancho de los contenedores a porcentajes o vw para dispositivos móviles.
+Modificaciones realizadas: Ajusté los contenedores principales en css/styles.css utilizando grid-template-columns: repeat(auto-fit, minmax(...)) para lograr adaptabilidad fluida.
+Justificación: Optimiza el diseño para múltiples resoluciones de pantalla sin necesidad de crear múltiples hojas de estilo, cumpliendo con la usabilidad responsive requerida.
+

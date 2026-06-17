@@ -1,63 +1,110 @@
-const users = [
-    // Roles de Clientes
-    { user: "user1@sportclub.cl", fullname: "user user", password: "1234", role: "user" },
-    { user: "user2@sportclub.cl", fullname: "Pedro Droguett", password: "1234", role: "user" }, 
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const messageContainer = document.getElementById('loginMessage');
 
-    // Roles de Entrenadores 
-    { user: "coach1@sportclub.cl", fullname: "coach coach", password: "1234", role: "coach" },
-    { user: "coach2@sportclub.cl", fullname: "María González", password: "1234", role: "coach" }, 
+    if (!loginForm || !emailInput || !passwordInput || !messageContainer) {
+        console.error("⚠️ Error: No se encontraron los elementos del formulario en el HTML.");
+        return;
+    }
 
-    // Roles de Administración 
-    { user: "admin1@sportclub.cl", fullname: "admin admin", password: "1234", role: "admin" },
-    { user: "admin2@sportclub.cl", fullname: "Carlos Silva", password: "1234", role: "admin" } 
-];
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-const loginForm = document.getElementById("loginForm");
-const emailInput = document.getElementById("email");
-const passwordInput = document.getElementById("password");
-const loginMessage = document.getElementById("loginMessage");
+        messageContainer.textContent = '';
+        messageContainer.className = '';
 
-loginForm.addEventListener("submit", async (event) => {
-    event.preventDefault(); 
-    
-    loginMessage.textContent = "";
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
 
-    const emailValue = emailInput.value.trim();
-    const passwordValue = passwordInput.value;
+        if (email === '' || password === '') {
+            mostrarError('⚠️ Por favor, ingresa tu correo y contraseña.');
+            return;
+        }
 
-    const matchedUser = users.find(u => u.user === emailValue && u.password === passwordValue);
+        try {
+            const respuesta = await fetch('http://localhost:3000/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            });
 
-    if (matchedUser) {
+            const datos = await respuesta.json();
 
-        const sessionUser = {
-            user: matchedUser.user,
-            fullname: matchedUser.fullname,
-            role: matchedUser.role
-        };
-        localStorage.setItem("user", JSON.stringify(sessionUser));
+            if (!respuesta.ok) {
+                throw new Error(datos.message || 'Credenciales incorrectas.');
+            }
 
-        // Ejecutar redirección según el rol correspondiente
-        redirectByRole(matchedUser.role);
-    } else {
-        // mensaje error 
-        loginMessage.textContent = "Credenciales incorrectas";
+            let token = null;
+            let role = null;
+            let displayName = null; 
+
+            if (datos.data) {
+                token = datos.data.token;
+                if (datos.data.user) {
+                    role = datos.data.user.role;
+                    displayName = datos.data.user.full_name || 
+                                  datos.data.user.fullName || 
+                                  datos.data.user.name || 
+                                  email || 
+                                  'Usuario';
+                }
+            }
+
+            if (!token || !role) {
+                console.error("Revisión interna de datos:", datos);
+                throw new Error('El servidor no devolvió el token o el rol esperado.');
+            }
+
+            localStorage.clear(); 
+            
+            localStorage.setItem('token', token);
+            localStorage.setItem('userRole', role.toLowerCase().trim());
+            localStorage.setItem('userName', displayName);
+            localStorage.setItem('userEmail', email); 
+
+            const userObj = {
+                id: (datos.data.user && datos.data.user.id) ? datos.data.user.id : "generico-123",
+                full_name: displayName,
+                email: email,
+                role: role.toLowerCase().trim(),
+                birth_date: (datos.data.user && datos.data.user.birth_date) ? datos.data.user.birth_date : "2000-01-01"
+            };
+            localStorage.setItem('user', JSON.stringify(userObj));
+
+            mostrarExito('✨ Ingreso exitoso. Redirigiendo a tu panel...');
+
+            setTimeout(() => {
+                const userRole = role.toLowerCase().trim();
+
+                if (userRole === 'admin') {
+                    window.location.href = 'dashboardAdmin.html';
+                } else if (userRole === 'coach') {
+                    window.location.href = 'dashboardCoach.html';
+                } else if (userRole === 'user') {
+                    window.location.href = 'dashboardUsuario.html';
+                } else {
+                    mostrarError(`Rol no reconocido en el sistema: "${userRole}"`);
+                }
+            }, 1500);
+
+        } catch (error) {
+            mostrarError(error.message);
+        }
+    });
+
+    function mostrarError(mensaje) {
+        messageContainer.textContent = mensaje;
+        messageContainer.className = 'alert alert-error visible';
+        messageContainer.style.color = '#dc3545';
+    }
+
+    function mostrarExito(mensaje) {
+        messageContainer.textContent = mensaje;
+        messageContainer.className = 'alert alert-success visible';
+        messageContainer.style.color = '#28a745';
     }
 });
-
-// Función encargada de la redirección
-function redirectByRole(role) {
-    switch (role) {
-        case "user":
-            window.location.href = "dashboardUsuario.html";
-            break;
-        case "coach":
-            window.location.href = "dashboardCoach.html";
-            break;
-        case "admin":
-            window.location.href = "dashboardAdmin.html";
-            break;
-        default:
-            loginMessage.textContent = "Error: Rol de usuario no reconocido.";
-            break;
-    }
-};

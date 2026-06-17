@@ -234,3 +234,46 @@ body {
 .footer-link:hover {
     color: #F2B705;
 }
+
+.contenedor-fecha-fila {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+.formulario-registro .input-fecha {
+    padding: 0.8rem 1.2rem; 
+    border: 2px solid #2E1A47;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    background-color: #fcfaff;
+    color: #4b5563;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    text-align: center; 
+}
+
+
+#birthDay, #birthMonth {
+    width: 25%; 
+}
+
+#birthYear {
+    width: 50%;
+}
+
+
+.formulario-registro .input-fecha:focus {
+    outline: none;
+    border-color: #F2B705;
+    box-shadow: 0 0 0 4px rgba(46, 26, 71, 0.15);
+    background-color: #ffffff;
+}
+
+
+.input-fecha::-webkit-outer-spin-button,
+.input-fecha::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+

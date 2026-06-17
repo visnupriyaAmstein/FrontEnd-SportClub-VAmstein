@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Coach - SportClub</title>
     <link href="../css/dashboardCoach.css" rel="stylesheet">
+    <link href="../css/modal-perfil.css" rel="stylesheet">
+    <script>
+        window.requiredRole = 'coach';
+    </script>
+    <script defer src="../js/auth-guard.js"></script>
+    <script defer src="../js/dashboardCoach.js"></script>
 </head>
 <body>
 
@@ -13,62 +19,36 @@
             <img src="../assets/logo_empresa_letra_v1.png" alt="Logo SportClub" class="logo-img">
         </div>
         <div class="header-actions">
-            <a href="mantenimiento.html" class="btn-header btn-profile">👤 Mi Perfil</a>
-            <a href="login.html" class="btn-header btn-logout">🚪 Cerrar Sesión</a>
+            <a href="#" class="btn-header btn-profile" id="btnMiPerfilCoachHeader">👤 Mi Perfil</a>
+            <a href="#" id="btnCerrarSesion" class="btn-header btn-logout">🚪 Cerrar Sesión</a>
         </div>
     </header>
 
     <div class="db-container">
         <nav class="db-nav">
             <ul class="nav-list">
-                <li><a href="dashboardCoach.html" class="nav-link active">🏠 Panel Coach</a></li>
+                <li><a href="#" id="navPanelCoach" class="nav-link active">🏠 Panel Coach</a></li>
                 <li><a href="mantenimiento.html" class="nav-link">🏋️ Mis Clases Asignadas</a></li>
                 <li><a href="mantenimiento.html" class="nav-link">👥 Seguimiento Alumnos</a></li>
             </ul>
         </nav>
 
         <main class="db-main">
-            
             <section class="welcome-banner">
                 <h1>Panel Técnico de Entrenamiento</h1>
-                <p>Gestión de rutinas, asistencia y control de rendimiento de la comunidad SportClub.</p>
+                <p>Gestiona tus clases y el seguimiento de tus alumnos.</p>
             </section>
 
             <div class="grid-content">
-                
-                <article class="card">
+
+                <article class="card" id="cardPanelCoach">
                     <header class="card-header">
                         <h2>⏱️ Bloque Actual</h2>
                     </header>
                     <div class="card-body">
                         <h3>CrossFit Inicial</h3>
                         <p><strong>Inscritos:</strong> 18 Alumnos</p>
-                        <p><strong>Zona:</strong> Box Central</p>
                         <a href="mantenimiento.html" class="btn-primary">Pasar Lista</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <header class="card-header">
-                        <h2>📝 Alertas de Rendimiento</h2>
-                    </header>
-                    <div class="card-body">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Alumno</th>
-                                    <th>Objetivo</th>
-                                    <th>Estado</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Andrés Silva</td>
-                                    <td>Fuerza Max</td>
-                                    <td><span class="badge warning">Revisar Plan</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </article>
 
@@ -76,5 +56,6 @@
         </main>
     </div>
 
+    <script src="../js/modal-perfil.js"></script>
 </body>
 </html>

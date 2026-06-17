@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Administrador - SportClub</title>
+    <title>Gestión de Usuarios - SportClub</title>
     <link href="../css/dashboardAdmin.css" rel="stylesheet">
+    <link href="../css/modal-perfil.css" rel="stylesheet">
+    <script>
+        window.requiredRole = 'admin';
+    </script>
+    <script src="../js/auth-guard.js"></script>
+    <script defer src="../js/dashboardAdmin.js"></script>
 </head>
 <body>
 
@@ -13,8 +19,8 @@
             <img src="../assets/logo_empresa_letra_v1.png" alt="Logo SportClub" class="logo-img">
         </div>
         <div class="header-actions">
-            <a href="mantenimiento.html" class="btn-header btn-profile">👤 Mi Perfil</a>
-            <a href="login.html" class="btn-header btn-logout">🚪 Cerrar Sesión</a>
+            <a href="#" class="btn-header btn-profile" id="btnMiPerfilAdminHeader">👤 Mi Perfil</a>
+            <a href="#" class="btn-header btn-logout" id="logoutBtn">🚪 Cerrar Sesión</a>
         </div>
     </header>
 
@@ -22,60 +28,31 @@
         <nav class="db-nav">
             <ul class="nav-list">
                 <li><a href="dashboardAdmin.html" class="nav-link active">🛡️ Panel Global</a></li>
-                <li><a href="mantenimiento.html" class="nav-link">👥 Control de Usuarios</a></li>
-                <li><a href="mantenimiento.html" class="nav-link">⚙️ Gestión de Bloques</a></li>
-                <li><a href="mantenimiento.html" class="nav-link">📊 Reportes Financieros</a></li>
+                <li><a href="crudUsuarios.html" class="nav-link">👥 Usuarios</a></li>
             </ul>
         </nav>
 
         <main class="db-main">
-            
             <section class="welcome-banner">
-                <h1>Consola de Administración Central</h1>
-                <p>Monitoreo del estado del servidor estático, altas corporativas y control de reportería.</p>
+                <h1>🛡️ Panel de Administración</h1>
+                <p>Gestiona usuarios, roles y configuraciones del sistema.</p>
             </section>
 
             <div class="grid-content">
-                
                 <article class="card">
                     <header class="card-header">
-                        <h2>⚙️ Estado Operativo del Club</h2>
+                        <h2>📊 Resumen del Sistema</h2>
                     </header>
                     <div class="card-body">
-                        <h3>Métricas de Uso</h3>
-                        <p><strong>Usuarios Activos:</strong> 342 Hoy</p>
-                        <p><strong>Cupos Ocupados:</strong> 87% Semanal</p>
-                        <a href="mantenimiento.html" class="btn-primary">Ver Auditoría</a>
+                        <p>Bienvenido al panel de administración de SportClub.</p>
+                        <p>Desde aquí puedes gestionar todos los usuarios y configuraciones.</p>
+                        <a href="crudUsuarios.html" class="btn-primary">Gestionar Usuarios</a>
                     </div>
                 </article>
-
-                <article class="card">
-                    <header class="card-header">
-                        <h2>🔒 Solicitudes de Registro Pendientes</h2>
-                    </header>
-                    <div class="card-body">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Solicitante</th>
-                                    <th>Plan Solicitado</th>
-                                    <th>Acción</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Valeria Rojas</td>
-                                    <td>Anual Premium</td>
-                                    <td><span class="badge danger">Pendiente</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </article>
-
             </div>
         </main>
     </div>
 
+    <script src="../js/modal-perfil.js"></script>
 </body>
 </html>

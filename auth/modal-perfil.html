@@ -1,0 +1,75 @@
+<div id="modalPerfilOverlay" class="modal-overlay modal-oculto" role="dialog" aria-modal="true" aria-labelledby="modalPerfilTitulo">
+    <div class="modal-card">
+
+        <header class="modal-header">
+            <h2 id="modalPerfilTitulo">👤 Mi Perfil</h2>
+            <span class="btn-modal-close" id="btnCerrarModalPerfil" title="Cerrar">&times;</span>
+        </header>
+
+        <div class="modal-body">
+            <div id="modalPerfilFeedback"></div>
+            <div id="modalPerfilViewBlock">
+                <div class="modal-perfil-avatar-row">
+                    <div class="modal-perfil-avatar">👤</div>
+                    <div>
+                        <h3 id="modalViewFullName" class="modal-perfil-nombre">-</h3>
+                        <span id="modalViewRoleBadge" class="badge">-</span>
+                    </div>
+                </div>
+
+                <p class="modal-perfil-dato"><strong>📧 Email:</strong> <span id="modalViewEmail">-</span></p>
+                <p class="modal-perfil-dato"><strong>📅 Nacimiento:</strong> <span id="modalViewBirthDate">-</span></p>
+
+                <button type="button" id="modalBtnEnableEdit" class="btn-primary modal-btn-full">✏️ Editar Perfil</button>
+            </div>
+
+            <form id="modalPerfilForm" class="hidden" novalidate>
+
+                <div class="modal-form-group">
+                    <label class="modal-label">Nombre Completo</label>
+                    <input type="text" id="modalInputName" class="modal-input" placeholder="Tu nombre completo">
+                    <small id="modalErrorName" class="modal-error-msg"></small>
+                </div>
+
+                <div class="modal-form-group">
+                    <label class="modal-label">Correo Electrónico</label>
+                    <input type="email" id="modalInputEmail" class="modal-input" placeholder="correo@ejemplo.com">
+                    <small id="modalErrorEmail" class="modal-error-msg"></small>
+                </div>
+
+                <div class="modal-form-group">
+                    <label class="modal-label">Fecha de Nacimiento</label>
+                    <input type="date" id="modalInputBirthDate" class="modal-input">
+                    <small id="modalErrorBirth" class="modal-error-msg"></small>
+                </div>
+
+                <hr class="modal-divider">
+                <p class="modal-seccion-titulo">🔒 Cambiar Contraseña <span class="modal-opcional">(opcional)</span></p>
+
+                <div class="modal-form-group">
+                    <label class="modal-label">Contraseña Actual</label>
+                    <input type="password" id="modalInputCurrentPass" class="modal-input" placeholder="Tu contraseña actual">
+                </div>
+
+                <div class="modal-form-group">
+                    <label class="modal-label">Nueva Contraseña <span class="modal-opcional">(mín. 8 caracteres)</span></label>
+                    <input type="password" id="modalInputNewPass" class="modal-input" placeholder="Nueva contraseña">
+                    <small id="modalErrorNewPass" class="modal-error-msg"></small>
+                </div>
+
+                <div class="modal-form-group">
+                    <label class="modal-label">Confirmar Contraseña</label>
+                    <input type="password" id="modalInputConfirmPass" class="modal-input" placeholder="Repite la nueva contraseña">
+                    <small id="modalErrorConfirmPass" class="modal-error-msg"></small>
+                </div>
+
+                <div class="modal-footer-btns">
+                    <button type="submit" class="btn-primary modal-btn-guardar">💾 Guardar Cambios</button>
+                    <button type="button" id="modalBtnCancelEdit" class="btn-modal-cancel">Cancelar</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
