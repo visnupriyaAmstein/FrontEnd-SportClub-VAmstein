@@ -1,55 +1,78 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const API_URL = 'http://localhost:3000/api/users'; 
-    const TOKEN = localStorage.getItem('token');
 
-    // Elementos de la interfaz (DOM)
-    const tablaBody = document.getElementById('tablaUsuariosBody');
+    const API_URL = 'http://localhost:3000/api/users';
+    const TOKEN   = localStorage.getItem('token');
+
+    // dom
+    const tablaBody            = document.getElementById('tablaUsuariosBody');
     const crudMessageContainer = document.getElementById('crudMessageContainer');
-    
-    // Elementos del Modal y Formulario
-    const usuarioModal = document.getElementById('usuarioModal');
-    const usuarioForm = document.getElementById('usuarioForm');
-    const modalTitulo = document.getElementById('modalTitulo');
-    const btnAbrirCrear = document.getElementById('btnAbrirCrear');
-    const btnCerrarModal = document.getElementById('btnCerrarModal');
-    
-    // Inputs del Formulario
-    const idInput = document.getElementById('crudUserId');
-    const nameInput = document.getElementById('crudFullName');
-    const emailInput = document.getElementById('crudEmail');
-    const roleSelect = document.getElementById('crudRole');
-    const passwordInput = document.getElementById('crudPassword');
-    const confirmPasswordInput = document.getElementById('crudConfirmPassword');
+    const usuarioModal         = document.getElementById('usuarioModal');
+    const usuarioForm          = document.getElementById('usuarioForm');
+    const modalTitulo          = document.getElementById('modalTitulo');
+    const btnAbrirCrear        = document.getElementById('btnAbrirCrear');
+    const btnCerrarModal       = document.getElementById('btnCerrarModal');
+    const btnCancelarModal     = document.getElementById('btnCancelarModal');
 
-    // Grupos de contraseña (para ocultar/mostrar según corresponda)
-    const grupoPassword = document.getElementById('grupoPassword');
+    // Inputs formulario
+    const idInput              = document.getElementById('crudUserId');
+    const nameInput            = document.getElementById('crudFullName');
+    const emailInput           = document.getElementById('crudEmail');
+    const roleSelect           = document.getElementById('crudRole');
+    const birthInput           = document.getElementById('crudBirthDate');
+    const passwordInput        = document.getElementById('crudPassword');
+    const confirmPasswordInput = document.getElementById('crudConfirmPassword');
+    const grupoPassword        = document.getElementById('grupoPassword');
     const grupoConfirmPassword = document.getElementById('grupoConfirmPassword');
 
-    
+  const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.clear();
+            window.location.href = 'login.html';
+        });
+    }
+
+    if (!tablaBody || !usuarioModal || !usuarioForm || !btnAbrirCrear) {
+        console.error('❌ crudUsuarios.js: Faltan elementos esenciales en el HTML (tablaUsuariosBody, usuarioModal, usuarioForm o btnAbrirCrear). Revisa que estés usando crudUsuarios.html correcto.');
+        return; 
+    }
+
     obtenerUsuarios();
 
     btnAbrirCrear.addEventListener('click', () => {
         limpiarFormulario();
-        modalTitulo.textContent = '➕ Registrar Nuevo Usuario';
-        idInput.value = ''; 
-        grupoPassword.style.display = 'block';
-        grupoConfirmPassword.style.display = 'block';
-        
-        usuarioModal.classList.remove('modal-oculto');
+        if (modalTitulo) modalTitulo.textContent = '➕ Registrar Nuevo Usuario';
+        idInput.value = '';
+        if (grupoPassword)        grupoPassword.style.display        = 'block';
+        if (grupoConfirmPassword) grupoConfirmPassword.style.display = 'block';
+        abrirModal();
     });
 
-    
-    btnCerrarModal.addEventListener('click', () => {
-        usuarioModal.classList.add('modal-oculto');
+    if (btnCerrarModal)   btnCerrarModal.addEventListener('click', cerrarModal);
+    if (btnCancelarModal) btnCancelarModal.addEventListener('click', cerrarModal);
+
+    usuarioModal.addEventListener('click', (e) => {
+        if (e.target === usuarioModal) cerrarModal();
     });
 
-    
-    window.addEventListener('click', (e) => {
-        if (e.target === usuarioModal) {
-            usuarioModal.classList.add('modal-oculto');
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !usuarioModal.classList.contains('modal-oculto')) {
+            cerrarModal();
         }
     });
 
+    function abrirModal() {
+        usuarioModal.classList.remove('modal-oculto');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function cerrarModal() {
+        usuarioModal.classList.add('modal-oculto');
+        document.body.style.overflow = '';
+    }
+
+    // obtengo y renderizo
     async function obtenerUsuarios() {
         try {
             const respuesta = await fetch(API_URL, {
@@ -60,36 +83,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            if (!respuesta.ok) throw new Error('No se pudo cargar el listado de usuarios.');
+            if (!respuesta.ok) throw new Error('No se pudo cargar el listado de usuarios (HTTP ' + respuesta.status + ').');
 
-            const resultadoAPI = await respuesta.json();
-            
-          
-            console.log("=== RESPUESTA ORIGINAL DE TU API DE USUARIOS ===");
-            console.log(resultadoAPI);
+            const resultado = await respuesta.json();
 
-            
-            let arregloUsuarios = [];
+            let usuarios = [];
+            if (Array.isArray(resultado))                    usuarios = resultado;
+            else if (Array.isArray(resultado.users))         usuarios = resultado.users;
+            else if (Array.isArray(resultado.data))          usuarios = resultado.data;
+            else throw new Error('Formato de respuesta inesperado de la API.');
 
-            if (Array.isArray(resultadoAPI)) {
-                
-                arregloUsuarios = resultadoAPI;
-            } else if (resultadoAPI.users && Array.isArray(resultadoAPI.users)) {
-                
-                arregloUsuarios = resultadoAPI.users;
-            } else if (resultadoAPI.data && Array.isArray(resultadoAPI.data)) {
-                
-                arregloUsuarios = resultadoAPI.data;
-            } else {
-            
-                console.error("No se detectó un formato de arreglo válido. Revisa la consola.");
-                throw new Error('Estructura de respuesta inesperada de la API.');
-            }
-
-            renderizarTabla(arregloUsuarios);
+            renderizarTabla(usuarios);
 
         } catch (error) {
-            notificacionGlobal(error.message, 'error');
+            notificacion(error.message, 'error');
         }
     }
 
@@ -97,7 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
         tablaBody.innerHTML = '';
 
         if (usuarios.length === 0) {
-            tablaBody.innerHTML = `<tr><td colspan="6" style="text-align:center;">No hay usuarios registrados.</td></tr>`;
+            tablaBody.innerHTML = `
+                <tr>
+                    <td colspan="6" style="text-align:center; padding:2rem; color:#9ca3af;">
+                        No hay usuarios registrados.
+                    </td>
+                </tr>`;
             return;
         }
 
@@ -105,30 +117,30 @@ document.addEventListener('DOMContentLoaded', () => {
             const tr = document.createElement('tr');
 
             let fechaFormateada = 'Sin registro';
-            if (user.created_at || user.birth_date) { 
-                const fechaBase = new Date(user.created_at || user.birth_date);
-                if (!isNaN(fechaBase)) {
-                    const d = String(fechaBase.getDate()).padStart(2, '0');
-                    const m = String(fechaBase.getMonth() + 1).padStart(2, '0');
-                    const a = fechaBase.getFullYear();
-                    fechaFormateada = `${d}/${m}/${a}`;
-                }
+            const fechaBase = user.created_at ? new Date(user.created_at) : null;
+            if (fechaBase && !isNaN(fechaBase)) {
+                const d = String(fechaBase.getDate()).padStart(2, '0');
+                const m = String(fechaBase.getMonth() + 1).padStart(2, '0');
+                const a = fechaBase.getFullYear();
+                fechaFormateada = `${d}/${m}/${a}`;
             }
 
+            const rol = user.role || 'user';
+
             tr.innerHTML = `
-                <td><strong>${user.id}</strong></td>
-                <td>${user.full_name || user.nombre}</td>
-                <td>${user.email}</td>
-                <td><span class="badge ${user.role}">${user.role}</span></td>
+                <td><strong>#${user.id}</strong></td>
+                <td>${user.full_name || user.nombre || '-'}</td>
+                <td>${user.email || '-'}</td>
+                <td><span class="badge ${rol}">${rol}</span></td>
                 <td>${fechaFormateada}</td>
                 <td>
-                    <button class="btn-accion btn-editar" data-id="${user.id}">✏️</button>
-                    <button class="btn-accion btn-eliminar" data-id="${user.id}">🗑️</button>
+                    <button class="btn-accion btn-editar" title="Editar" data-id="${user.id}">✏️ Editar</button>
+                    <button class="btn-accion btn-eliminar" title="Eliminar" data-id="${user.id}">🗑️ Eliminar</button>
                 </td>
             `;
 
             tr.querySelector('.btn-editar').addEventListener('click', () => abrirEditar(user));
-            tr.querySelector('.btn-eliminar').addEventListener('click', () => eliminarUsuario(user.id));
+            tr.querySelector('.btn-eliminar').addEventListener('click', () => eliminarUsuario(user.id, user.full_name));
 
             tablaBody.appendChild(tr);
         });
@@ -136,45 +148,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function abrirEditar(user) {
         limpiarFormulario();
-        modalTitulo.textContent = '✏️ Editar Usuario';
-        
-        // Rellenar los campos con los datos actuales
-        idInput.value = user.id;
-        nameInput.value = user.full_name || user.nombre;
-        emailInput.value = user.email;
-        roleSelect.value = user.role;
+        if (modalTitulo) modalTitulo.textContent = '✏️ Editar Usuario';
 
-        grupoPassword.style.display = 'none';
-        grupoConfirmPassword.style.display = 'none';
+        idInput.value    = user.id;
+        nameInput.value  = user.full_name || user.nombre || '';
+        emailInput.value = user.email || '';
+        roleSelect.value = user.role || 'user';
+        if (birthInput) birthInput.value = user.birth_date ? user.birth_date.substring(0, 10) : '';
 
-        usuarioModal.classList.remove('modal-oculto');
+        if (grupoPassword)        grupoPassword.style.display        = 'none';
+        if (grupoConfirmPassword) grupoConfirmPassword.style.display = 'none';
+
+        abrirModal();
     }
 
-    //Guardar cambios del formulario
     usuarioForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-
-        // Si las validaciones visuales fallan, detenemos el envío
         if (!validarFormulario()) return;
 
         const isEditing = idInput.value !== '';
-        const urlFinal = isEditing ? `${API_URL}/${idInput.value}` : API_URL;
-        const metodo = isEditing ? 'PUT' : 'POST';
+        const url       = isEditing ? `${API_URL}/${idInput.value}` : API_URL;
+        const metodo    = isEditing ? 'PUT' : 'POST';
 
-        // Construir Payload
         const payload = {
-            full_name: nameInput.value.trim(),
-            email: emailInput.value.trim(),
-            role: roleSelect.value
+            full_name:  nameInput.value.trim(),
+            email:      emailInput.value.trim().toLowerCase(),
+            role:       roleSelect.value,
+            birth_date: birthInput ? (birthInput.value || null) : null
         };
 
-        // Solo agregar contraseña si estamos creando
         if (!isEditing) {
             payload.password = passwordInput.value.trim();
         }
 
         try {
-            const respuesta = await fetch(urlFinal, {
+            const respuesta = await fetch(url, {
                 method: metodo,
                 headers: {
                     'Authorization': `Bearer ${TOKEN}`,
@@ -184,21 +192,32 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             const resultado = await respuesta.json();
+            console.log('Respuesta del backend al guardar usuario:', resultado);
 
-            if (!respuesta.ok) throw new Error(resultado.message || 'Error al procesar la solicitud.');
+            if (!respuesta.ok) {
+                const mensajeError = resultado.message
+                    || resultado.error
+                    || (Array.isArray(resultado.errors) ? resultado.errors.join(', ') : null)
+                    || 'Error al procesar la solicitud.';
+                throw new Error(mensajeError);
+            }
 
-            notificacionGlobal(isEditing ? '✨ Usuario actualizado con éxito' : '✨ Usuario creado con éxito', 'success');
-            usuarioModal.classList.add('modal-oculto');
-            obtenerUsuarios(); 
+            notificacion(
+                isEditing ? '✨ Usuario actualizado con éxito' : '✨ Usuario creado con éxito',
+                'success'
+            );
+            cerrarModal();
+            obtenerUsuarios();
 
         } catch (error) {
-            notificacionGlobal(error.message, 'error');
+            notificacion(error.message, 'error');
         }
     });
 
-    // Eliminar usuario
-    async function eliminarUsuario(id) {
-        if (!confirm('¿Estás completamente seguro de eliminar este usuario? Esta acción no se puede deshacer.')) return;
+    // eliminar
+    async function eliminarUsuario(id, nombre) {
+        const confirmar = confirm(`¿Eliminar a "${nombre || 'este usuario'}"?\nEsta acción no se puede deshacer.`);
+        if (!confirmar) return;
 
         try {
             const respuesta = await fetch(`${API_URL}/${id}`, {
@@ -212,58 +231,46 @@ document.addEventListener('DOMContentLoaded', () => {
             const resultado = await respuesta.json();
             if (!respuesta.ok) throw new Error(resultado.message || 'No se pudo eliminar el usuario.');
 
-            notificacionGlobal('🗑️ Usuario eliminado correctamente.', 'success');
-            obtenerUsuarios(); 
+            notificacion('🗑️ Usuario eliminado correctamente.', 'success');
+            obtenerUsuarios();
 
         } catch (error) {
-            notificacionGlobal(error.message, 'error');
+            notificacion(error.message, 'error');
         }
     }
 
+    // validación
     function validarFormulario() {
+        limpiarErroresVisuales();
         let esValido = true;
         const isEditing = idInput.value !== '';
 
-        // Limpiar estilos de error anteriores antes de evaluar de nuevo
-        limpiarErroresVisuales();
-
-        // Validación Nombre
         if (nameInput.value.trim() === '') {
-            marcarError(nameInput, 'errorFullName', 'El nombre completo es obligatorio');
+            marcarError('crudFullName', 'errorFullName', 'El nombre completo es obligatorio');
             esValido = false;
         }
 
-        // Validación Email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (emailInput.value.trim() === '') {
-            marcarError(emailInput, 'errorEmail', 'El email es obligatorio');
+            marcarError('crudEmail', 'errorEmail', 'El email es obligatorio');
             esValido = false;
         } else if (!emailRegex.test(emailInput.value.trim())) {
-            marcarError(emailInput, 'errorEmail', 'Ingresa un formato de correo válido');
+            marcarError('crudEmail', 'errorEmail', 'Formato de correo inválido');
             esValido = false;
         }
 
-        // Validación Rol
         if (roleSelect.value === '') {
-            marcarError(roleSelect, 'errorRole', 'Debes asignar un rol al usuario');
+            marcarError('crudRole', 'errorRole', 'Debes asignar un rol');
             esValido = false;
         }
 
-        // Validaciones Contraseña 
         if (!isEditing) {
-            if (passwordInput.value.trim() === '') {
-                marcarError(passwordInput, 'errorPassword', 'La contraseña es obligatoria');
-                esValido = false;
-            } else if (passwordInput.value.trim().length < 8) {
-                marcarError(passwordInput, 'errorPassword', 'Contraseña mínima de 8 caracteres');
+            if (passwordInput.value.trim().length < 8) {
+                marcarError('crudPassword', 'errorPassword', 'Mínimo 8 caracteres');
                 esValido = false;
             }
-
-            if (confirmPasswordInput.value.trim() === '') {
-                marcarError(confirmPasswordInput, 'errorConfirmPassword', 'Debes confirmar la contraseña');
-                esValido = false;
-            } else if (passwordInput.value.trim() !== confirmPasswordInput.value.trim()) {
-                marcarError(confirmPasswordInput, 'errorConfirmPassword', 'Las contraseñas no coinciden');
+            if (passwordInput.value.trim() !== confirmPasswordInput.value.trim()) {
+                marcarError('crudConfirmPassword', 'errorConfirmPassword', 'Las contraseñas no coinciden');
                 esValido = false;
             }
         }
@@ -271,20 +278,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return esValido;
     }
 
-    function marcarError(inputElement, spanId, mensaje) {
-        inputElement.classList.add('is-invalid'); 
-        const spanError = document.getElementById(spanId);
-        if (spanError) {
-            spanError.textContent = mensaje; 
-        }
+    function marcarError(inputId, errorId, mensaje) {
+        const input = document.getElementById(inputId);
+        const span  = document.getElementById(errorId);
+        if (input) input.classList.add('modal-input-error');
+        if (span)  span.textContent = mensaje;
     }
 
     function limpiarErroresVisuales() {
-        const inputs = usuarioForm.querySelectorAll('input, select');
-        inputs.forEach(input => input.classList.remove('is-invalid'));
-
-        const feedbacks = usuarioForm.querySelectorAll('.field-feedback');
-        feedbacks.forEach(fb => fb.textContent = '');
+        usuarioForm.querySelectorAll('.modal-input').forEach(i => i.classList.remove('modal-input-error'));
+        usuarioForm.querySelectorAll('.modal-error-msg').forEach(e => e.textContent = '');
     }
 
     function limpiarFormulario() {
@@ -292,16 +295,26 @@ document.addEventListener('DOMContentLoaded', () => {
         limpiarErroresVisuales();
     }
 
-    // Mensajes flotantes informativos en el módulo
-    function notificacionGlobal(mensaje, tipo) {
+    function notificacion(mensaje, tipo) {
+        if (!crudMessageContainer) {
+            console.log(`[${tipo}] ${mensaje}`);
+            return;
+        }
+        const esExito = tipo === 'success';
         crudMessageContainer.innerHTML = `
-            <div class="alert alert-${tipo === 'success' ? 'success' : 'error'} visible">
+            <div style="
+                padding: 12px 16px;
+                margin-bottom: 1rem;
+                border-radius: 10px;
+                font-weight: 600;
+                text-align: center;
+                background: ${esExito ? '#e6f7ed' : '#fde8e8'};
+                color: ${esExito ? '#1e7e34' : '#721c24'};
+                border: 1px solid ${esExito ? '#c3e6cb' : '#f8b4b4'};
+            ">
                 ${mensaje}
-            </div>
-        `;
-        
-        setTimeout(() => {
-            crudMessageContainer.innerHTML = '';
-        }, 4000);
+            </div>`;
+        setTimeout(() => { crudMessageContainer.innerHTML = ''; }, 4500);
     }
+
 });
